@@ -14,7 +14,7 @@ function Detection() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Object Detection: YOLO and RCNN</div>
+            <div style={style_ip_title}>Real Time Object Detection</div>
         </div>
     );
 }

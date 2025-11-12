@@ -14,7 +14,7 @@ function Cnn() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>CNN for Cats Vs. Dogs</div>
+            <div style={style_ip_title}>CNN: Cats & Dogs Classifiers</div>
         </div>
     );
 }

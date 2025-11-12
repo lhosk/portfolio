@@ -14,7 +14,7 @@ function Srgan() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Super-Resolution Generative Adversarial Network</div>
+            <div style={style_ip_title}>Super-Resolution (SR) GAN</div>
         </div>
     );
 }

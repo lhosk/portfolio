@@ -14,7 +14,7 @@ function Recommendation() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Recommendation System</div>
+            <div style={style_ip_title}>Recipe Recommendation System</div>
         </div>
     );
 }

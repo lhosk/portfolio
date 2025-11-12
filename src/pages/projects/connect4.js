@@ -14,7 +14,7 @@ function Connect4() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Connect4: Minimax & AB Pruning</div>
+            <div style={style_ip_title}>Connect 4: Minimax & AB Pruning</div>
         </div>
     );
 }

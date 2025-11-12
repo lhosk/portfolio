@@ -14,7 +14,7 @@ function Rl() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Reinforcement Learning: Atari Cats Vs. Dogs</div>
+            <div style={style_ip_title}>Reinforcement Learning</div>
         </div>
     );
 }

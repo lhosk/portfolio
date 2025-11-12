@@ -14,7 +14,7 @@ function Parallel() {
 
     return (
         <div style={style_ip_bg}>
-            <div style={style_ip_title}>Pthreads & OpenMP on an HPC: </div>
+            <div style={style_ip_title}>Parallel Computing </div>
         </div>
     );
 }
