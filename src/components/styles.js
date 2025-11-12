@@ -238,6 +238,14 @@
         color: "white",
         pointerEvents: "auto",
     };
+    // Updating Links (Used in NavBar)
+    export const style_nb_link = {
+        ...style_nb_line, 
+        cursor: "pointer", 
+        textDecoration: "underline",
+        transition: "all 0.2s ease",
+        opacity: 0.9
+    };
     // Box (box)
         // Format (format)
         export const style_nb_box_format = {
@@ -302,11 +310,9 @@
             zIndex: 9,
         };
 
-// Updating Links (Used in NavBar)
-export const linkStyle = {
-    ...style_nb_line, 
-    cursor: "pointer", 
+// hyperlinks (hyperlink)
+export const style_hyperlink = {
+    fontColor: "white",
     textDecoration: "underline",
-    transition: "all 0.2s ease",
-    opacity: 0.9
+    cursor: "pointer",
 };

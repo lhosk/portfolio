@@ -103,7 +103,7 @@ function About() {
                     </div>
                 </div>
             )}
-            <div style={{width: "100%", height: "10vh", display: "block"}}></div>
+            <div style={{width: "100%", height: "6vh", display: "block"}}></div>
         </div>
     );
 }
