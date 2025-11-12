@@ -192,7 +192,7 @@
         // Grid (grid)
         export const style_proj_grid = {
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
             gap: "2rem",
             padding: "8rem 3rem",
             maxWidth: "1200px",
