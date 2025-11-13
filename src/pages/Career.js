@@ -23,7 +23,7 @@ function Career() {
     const [openCert, setOpenCert] = useState(null);
 
     useEffect(() => {
-        playPageAudio("about");
+        playPageAudio("career");
         return () => stopPageAudio();
     }, []);
 
