@@ -7,10 +7,31 @@
     <meta name="description" content="React portfolio site" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     
- 
+
 
     <title>Lucas' Portfolio</title>
+
+    <!-- ✨ REMOVE WHITE BORDER + SCROLLBAR TRACK -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: black;      /* ensures no white edges EVER */
+      }
+
+      /* hide scrollbars but keep scrolling */
+      ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+      }
+
+      html {
+        overflow-x: hidden;
+        overflow-y: overlay;    /* keeps scroll smooth without white bar */
+      }
+    </style>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
