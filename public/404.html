@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <title>Redirecting…</title>
 
-    <!-- Redirect all 404s back to index.html so React Router can handle the route -->
-    <meta http-equiv="refresh" content="0; URL=./index.html" />
-    
+    <!-- GitHub Pages SPA redirect -->
     <script>
-      // Fallback JS redirect (works when meta-refresh doesn't)
-      window.location.href = "./index.html";
+      // Get the current path excluding the repo name
+      var redirect = window.location.pathname.replace("/portfolio/", "");
+
+      // Rewrite the URL to use client-side routing
+      var newUrl = "/portfolio/?" + redirect;
+
+      window.location.replace(newUrl);
     </script>
   </head>
 
