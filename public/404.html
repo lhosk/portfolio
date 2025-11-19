@@ -3,13 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script>
-      // Redirect all unknown paths back to index.html
-      window.location.replace("/portfolio/index.html");
+      // GitHub Pages SPA redirect
+      var redirectTo = window.location.pathname.replace("/portfolio", "");
+      window.location.replace("/portfolio/" + redirectTo);
     </script>
   </head>
+
   <body>
-    <p>Redirecting…</p>
+    <h1 style="color:white; background:black; text-align:center; padding:40px;">
+      Redirecting…
+    </h1>
   </body>
 </html>
