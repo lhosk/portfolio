@@ -12,14 +12,49 @@ import {
 import { playPageAudio, stopPageAudio } from "../../components/AudioManager.js";
 
 const projectData = [
-    { title: "Rotating Squares", desc: "", path: "/portfolio/projects/gl/rotating" },
-    { title: "Drawing Dots", desc: "", path: "/portfolio/projects/gl/drawing" },
-    { title: "Drawing Triangles", desc: "", path: "/portfolio/projects/gl/triangles" },
-    { title: "Archimedian Spiral", desc: "", path: "/portfolio/projects/gl/archimedian" }, 
-    { title: "Volcano", desc: "", path: "/portfolio/projects/gl/volcano" },
-    { title: "Indexing Cubes", desc: "", path: "/portfolio/projects/gl/cubes" },
-    { title: "Perspective of A Pot", desc: "", path: "/portfolio/projects/gl/perspective" },
+    { 
+        title: "Rotating Squares", 
+        desc: "Two squares rotating around each other to learn basic WebGL animation.", 
+        path: "/portfolio/projects/gl/rotating" 
+    },
+
+    { 
+        title: "Drawing Dots", 
+        desc: "Interactive dot drawing with random colors and real-time pixel updates.", 
+        path: "/portfolio/projects/gl/drawing" 
+    },
+
+    { 
+        title: "Drawing Triangles", 
+        desc: "Rendering and coloring triangles using vertex buffers and shaders.", 
+        path: "/portfolio/projects/gl/triangles" 
+    },
+
+    { 
+        title: "Archimedian Spiral", 
+        desc: "Generated a spiral mathematically and attached rotating squares along it.", 
+        path: "/portfolio/projects/gl/archimedian" 
+    },
+
+    { 
+        title: "Volcano", 
+        desc: "A particle effect using physics, random lifetimes, and dynamic updates.", 
+        path: "/portfolio/projects/gl/volcano" 
+    },
+
+    { 
+        title: "Indexing Cubes", 
+        desc: "3D cubes shooting in different directions using matrix transforms.", 
+        path: "/portfolio/projects/gl/cubes" 
+    },
+
+    { 
+        title: "Perspective of A Pot", 
+        desc: "Full perspective camera control with clipping planes and scaling.", 
+        path: "/portfolio/projects/gl/perspective" 
+    },
 ];
+
 
 function Gl() {
     useEffect(() => {
