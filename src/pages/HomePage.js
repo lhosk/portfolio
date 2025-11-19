@@ -37,7 +37,7 @@ function HomePage() {
                 <>
                     <div style={style_hp_con_grid}>
                         <h2 style={style_hp_con_header}>
-                            Contact CheckingMe!
+                            Contact Me!
                         </h2>
 
                         <button style={style_hp_con_button_text} onClick={() => window.open("https://github.com/lhosk", "_blank")}>
