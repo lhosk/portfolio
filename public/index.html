@@ -7,7 +7,14 @@
     <meta name="description" content="React portfolio site" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     
-
+    <!-- DO NOT PUSH TO GITHUB REPO -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWR5HDD0J9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VWR5HDD0J9');
+    </script>
 
     <title>Lucas' Portfolio</title>
 
@@ -16,7 +23,7 @@
       html, body {
         margin: 0;
         padding: 0;
-        background: black;      /* ensures no white edges EVER */
+        /* background: black;      ensures no white edges EVER */
       }
 
       /* hide scrollbars but keep scrolling */
