@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Redirecting…</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="refresh" content="0; URL=/portfolio/" />
 
     <script>
-      // Full SPA redirect for GitHub Pages
       (function () {
-        var redirectTo = "/portfolio/" + window.location.pathname.replace("/portfolio", "") + window.location.search + window.location.hash;
+        // Full original URL
+        var full = window.location.pathname + window.location.search + window.location.hash;
+
+        // Remove the base (/portfolio) if it's already included
+        full = full.replace(/^\/portfolio/, "");
+
+        // Build redirect URL:
+        // /portfolio/#/the/rest/of/the/path
+        // (React Router will read hash part automatically)
+        var redirect = "/portfolio/#" + full;
 
         // Remove double slashes
-        redirectTo = redirectTo.replace(/\/+/g, "/");
+        redirect = redirect.replace(/\/+/g, "/");
 
-        window.location.replace(redirectTo);
+        window.location.replace(redirect);
       })();
     </script>
   </head>
