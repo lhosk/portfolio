@@ -36,8 +36,7 @@ function Paths() {
         <>
             <NavBar />
             <Routes>
-
-                {/* MAIN PAGES */}
+                {/* MAIN */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/career" element={<Career />} />
@@ -49,9 +48,11 @@ function Paths() {
                 <Route path="/projects/cnn" element={<Cnn />} />
                 <Route path="/projects/connect4" element={<Connect4 />} />
                 <Route path="/projects/detection" element={<Detection />} />
+
+                {/* WEBGL HUB */}
                 <Route path="/projects/gl" element={<Gl />} />
 
-                {/* WEBGL SUBPROJECTS */}
+                {/* WEBGL SUBPAGES */}
                 <Route path="/projects/gl/archimedian" element={<Archimedian />} />
                 <Route path="/projects/gl/cubes" element={<Cubes />} />
                 <Route path="/projects/gl/drawing" element={<Drawing />} />
@@ -69,7 +70,6 @@ function Paths() {
                 <Route path="/projects/rlgl" element={<Rlgl />} />
                 <Route path="/projects/srgan" element={<Srgan />} />
                 <Route path="/projects/vrd" element={<Vrd />} />
-
             </Routes>
         </>
     );
