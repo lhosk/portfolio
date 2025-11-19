@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script>
-      // GitHub Pages SPA redirect
-      var redirectTo = window.location.pathname.replace("/portfolio", "");
-      window.location.replace("/portfolio/" + redirectTo);
+      (function () {
+        // current URL path
+        var path = window.location.pathname;
+
+        // if path already starts with /portfolio, do NOT add anything
+        if (!path.startsWith("/portfolio")) {
+          path = "/portfolio" + path;
+        }
+
+        // Clean up duplicated slashes (///// → /)
+        path = path.replace(/\/+/g, "/");
+
+        window.location.replace(path);
+      })();
     </script>
   </head>
 
