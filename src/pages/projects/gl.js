@@ -15,43 +15,43 @@ const projectData = [
     { 
         title: "Rotating Squares", 
         desc: "Two squares rotating around each other to learn basic WebGL animation.", 
-        path: "/portfolio/projects/gl/rotating" 
+        path: "/projects/gl/rotating" 
     },
 
     { 
         title: "Drawing Dots", 
         desc: "Interactive dot drawing with random colors and real-time pixel updates.", 
-        path: "/portfolio/projects/gl/drawing" 
+        path: "/projects/gl/drawing" 
     },
 
     { 
         title: "Drawing Triangles", 
         desc: "Rendering and coloring triangles using vertex buffers and shaders.", 
-        path: "/portfolio/projects/gl/triangles" 
+        path: "/projects/gl/triangles"
     },
 
     { 
         title: "Archimedian Spiral", 
         desc: "Generated a spiral mathematically and attached rotating squares along it.", 
-        path: "/portfolio/projects/gl/archimedian" 
+        path: "/projects/gl/archimedian" 
     },
 
     { 
         title: "Volcano", 
         desc: "A particle effect using physics, random lifetimes, and dynamic updates.", 
-        path: "/portfolio/projects/gl/volcano" 
+        path: "/projects/gl/volcano" 
     },
 
     { 
         title: "Indexing Cubes", 
         desc: "3D cubes shooting in different directions using matrix transforms.", 
-        path: "/portfolio/projects/gl/cubes" 
+        path: "/projects/gl/cubes" 
     },
 
     { 
         title: "Perspective of A Pot", 
         desc: "Full perspective camera control with clipping planes and scaling.", 
-        path: "/portfolio/projects/gl/perspective" 
+        path: "/projects/gl/perspective" 
     },
 ];
 
