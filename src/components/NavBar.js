@@ -27,7 +27,7 @@ function NavBar() {
 
   const handleNavigation = (path) => {
     if (location.pathname === path) return;
-    if (location.pathname === "/portfolio") {
+    if (location.pathname === "/") {
       PageSwitch(() => navigate(path));
     } else {
       navigate(path);
@@ -40,18 +40,18 @@ function NavBar() {
       {!isMobile && (
         <>
           <div style={style_nb_box_left}>
-            <div style={style_nb_link} onClick={() => handleNavigation("/portfolio")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Home Page</div>
+            <div style={style_nb_link} onClick={() => handleNavigation("/")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Home Page</div>
             <div style={style_nb_line}>Lucas Hoskin</div>
             <div style={style_nb_line}>Computational Physics</div>
             <div style={style_nb_line}><GetTime /></div>
-            {/* <div style={style_nb_link} onClick={() => handleNavigation("/portfolio/music")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Music Used</div> */}
+            {/* <div style={style_nb_link} onClick={() => handleNavigation("/music")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Music Used</div> */}
           </div>
 
           <div style={style_nb_box_right}>
-            {/* <div style={style_nb_link} onClick={() => handleNavigation("/portfolio/contact")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Contact Information</div> */}
-            <div style={style_nb_link} onClick={() => handleNavigation("/portfolio/career")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Career Overview</div>
-            <div style={style_nb_link} onClick={() => handleNavigation("/portfolio/about")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>More About Me</div>
-            <div style={style_nb_link} onClick={() => handleNavigation("/portfolio/projects")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Projects</div>
+            {/* <div style={style_nb_link} onClick={() => handleNavigation("/contact")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Contact Information</div> */}
+            <div style={style_nb_link} onClick={() => handleNavigation("/career")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Career Overview</div>
+            <div style={style_nb_link} onClick={() => handleNavigation("/about")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>More About Me</div>
+            <div style={style_nb_link} onClick={() => handleNavigation("/projects")} onMouseEnter={(e) => e.currentTarget.style.opacity = "1"} onMouseLeave={(e) => e.currentTarget.style.opacity = "0.9"}>Projects</div>
           </div>
         </>
       )}
@@ -64,20 +64,20 @@ function NavBar() {
 
           {showLeftMenu && (
             <div style={style_nb_mobile_overlay} onClick={() => setShowLeftMenu(false)}>
-              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio"); setShowLeftMenu(false); }}>Home Page</div>
+              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/"); setShowLeftMenu(false); }}>Home Page</div>
               <div style={style_nb_line}>Lucas Hoskin</div>
               <div style={style_nb_line}>Computational Physics</div>
               <div style={style_nb_line}><GetTime /></div>
-              {/* <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio/music"); setShowRightMenu(false); }}>Music Used</div> */}
+              {/* <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/music"); setShowRightMenu(false); }}>Music Used</div> */}
             </div>
           )}
 
           {showRightMenu && (
             <div style={style_nb_mobile_overlay} onClick={() => setShowRightMenu(false)}>
-              {/* <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio/contact"); setShowRightMenu(false); }}>Contact Information</div> */}
-              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio/career"); setShowRightMenu(false); }}>Career Overview</div>
-              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio/about"); setShowRightMenu(false); }}>More About Me</div>
-              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/portfolio/projects"); setShowRightMenu(false); }}>Projects</div>
+              {/* <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/contact"); setShowRightMenu(false); }}>Contact Information</div> */}
+              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/career"); setShowRightMenu(false); }}>Career Overview</div>
+              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/about"); setShowRightMenu(false); }}>More About Me</div>
+              <div style={style_nb_link} onClick={(e) => { e.stopPropagation(); handleNavigation("/projects"); setShowRightMenu(false); }}>Projects</div>
             </div>
           )}
         </>
