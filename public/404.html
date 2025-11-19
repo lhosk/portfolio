@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Redirecting…</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="0; URL=/portfolio/" />
 
     <script>
+      // Full SPA redirect for GitHub Pages
       (function () {
-        // current URL path
-        var path = window.location.pathname;
+        var redirectTo = "/portfolio/" + window.location.pathname.replace("/portfolio", "") + window.location.search + window.location.hash;
 
-        // if path already starts with /portfolio, do NOT add anything
-        if (!path.startsWith("/portfolio")) {
-          path = "/portfolio" + path;
-        }
+        // Remove double slashes
+        redirectTo = redirectTo.replace(/\/+/g, "/");
 
-        // Clean up duplicated slashes (///// → /)
-        path = path.replace(/\/+/g, "/");
-
-        window.location.replace(path);
+        window.location.replace(redirectTo);
       })();
     </script>
   </head>
-
+  <body></body>
 </html>
