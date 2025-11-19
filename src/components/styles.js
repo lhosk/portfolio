@@ -103,6 +103,7 @@
         flexDirection: "column",
         alignItems: "center",
         padding: "4rem 1rem",
+        paddingBottom: "4rem",
     };
     // Title box (title_box)
     export const style_ip_title_box = {

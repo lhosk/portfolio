@@ -9,6 +9,14 @@ import Music from "../pages/Music.js";
 import Cnn from "../pages/projects/cnn.js";
 import Connect4 from "../pages/projects/connect4.js";
 import Detection from "../pages/projects/detection.js";
+import Gl from "../pages/projects/gl.js";
+import Archimedian from "../pages/projects/gl/archimedian.js";
+import Cubes from "../pages/projects/gl/cubes.js";
+import Drawing from "../pages/projects/gl/drawing.js";
+import Perspective from "../pages/projects/gl/perspective.js";
+import Rotating from "../pages/projects/gl/rotating.js";
+import Triangles from "../pages/projects/gl/triangles.js";
+import Volcano from "../pages/projects/gl/volcano.js";
 import Mcs from "../pages/projects/mcs.js";
 import Mcsapf from "../pages/projects/mcsapf.js";
 import Parallel from "../pages/projects/parallel.js";
@@ -32,6 +40,14 @@ function Paths() {
                 <Route path="/portfolio/projects/cnn" element={<Cnn />} />
                 <Route path="/portfolio/projects/connect4" element={<Connect4 />} />
                 <Route path="/portfolio/projects/detection" element={<Detection />} />
+                <Route path="/portfolio/projects/gl" element={<Gl />} />
+                <Route path="/portfolio/projects/gl/Archimedian" element={<Archimedian />} />
+                <Route path="/portfolio/projects/gl/Cubes" element={<Cubes />} />
+                <Route path="/portfolio/projects/gl/Drawing" element={<Drawing />} />
+                <Route path="/portfolio/projects/gl/Perspective" element={<Perspective />} /> 
+                <Route path="/portfolio/projects/gl/Rotating" element={<Rotating />} /> 
+                <Route path="/portfolio/projects/gl/Triangles" element={<Triangles />} />
+                <Route path="/portfolio/projects/gl/Volcano" element={<Volcano />} />
                 <Route path="/portfolio/projects/mcs" element={<Mcs />} />
                 <Route path="/portfolio/projects/mcsapf" element={<Mcsapf />} />
                 <Route path="/portfolio/projects/parallel" element={<Parallel />} />

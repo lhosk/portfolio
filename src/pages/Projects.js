@@ -23,7 +23,7 @@ const projectData = [
     { title: "Red Light Green Light Game", desc: "Arduino, C++, Embedded Systems, Game Logic, Hardware Interfacing, Sensor Input Handling, Sound Control", path: "/portfolio/projects/rlgl" },
     { title: "Super Resolution Generative Adversarial Network", desc: "Python, Deep Learning, TensorFlow, GANs, SRGAN, CNN, Image Super-Resolution, Transfer Learning, Image Classification", path: "/portfolio/projects/srgan" },
     { title: "Virtual Retinal Display", desc: "Python, Optical Simulation, LightTools, Fusion 360, Virtual Retinal Display, Laser Intensity Modeling", path: "/portfolio/projects/vrd" },
-    // { title: "This Project is Under Progress", desc: "", path: "/portfolio/projects/UnderProgress" },
+    { title: "Web/Open Gl Projects", desc: "JavaScript, WebGL, OpenGL, HTML5 Canvas", path: "/portfolio/projects/gl" },
 ];
 
 function Projects() {
