@@ -21,6 +21,7 @@ import Perspective from "../pages/projects/gl/perspective.js";
 import Rotating from "../pages/projects/gl/rotating.js";
 import Triangles from "../pages/projects/gl/triangles.js";
 import Volcano from "../pages/projects/gl/volcano.js";
+import Quaternion from "../pages/projects/gl/quaternion.js";
 
 import Mcs from "../pages/projects/mcs.js";
 import Mcsapf from "../pages/projects/mcsapf.js";
@@ -56,6 +57,7 @@ function Paths() {
                 <Route path="/projects/gl/rotating" element={<Rotating />} />
                 <Route path="/projects/gl/triangles" element={<Triangles />} />
                 <Route path="/projects/gl/volcano" element={<Volcano />} />
+                <Route path="/projects/gl/quaternion" element={<Quaternion />} />
 
                 <Route path="/projects/mcs" element={<Mcs />} />
                 <Route path="/projects/mcsapf" element={<Mcsapf />} />

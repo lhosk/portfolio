@@ -130,7 +130,8 @@
         export const style_ip_about_image = {
             position: "absolute",
             maxWidth: "400px",
-            height: "auto",
+            // height: "auto",
+            // marginTop: "-20rem"
         };
         // Text (text)
         export const style_ip_about_text = {

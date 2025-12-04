@@ -53,6 +53,12 @@ const projectData = [
         desc: "Full perspective camera control with clipping planes and scaling.", 
         path: "/projects/gl/perspective" 
     },
+
+    { 
+        title: "Quaternions and Light Shading", 
+        desc: "Interactive teapot with quaternion rotation and Phong lighting controls.", 
+        path: "/projects/gl/quaternion" 
+    },
 ];
 
 

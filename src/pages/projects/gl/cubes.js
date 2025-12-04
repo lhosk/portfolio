@@ -3,7 +3,8 @@ import {
     style_ip_bg,
     style_ip_title,
     style_ip_career_section,
-    style_ip_about_text
+    style_ip_about_text,
+    style_hyperlink
 } from "../../../components/styles.js";
 import { playPageAudio, stopPageAudio } from "../../../components/AudioManager.js";
 
@@ -35,6 +36,16 @@ function Cubes() {
                         WebGL really “clicked” for me in terms of how 3D graphics 
                         pipelines actually work.
                     </div>
+                    <p>
+                        <a 
+                            href="https://github.com/lhosk/opengl-and-webgl/tree/main/exploding_cubes"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={style_hyperlink}
+                        >
+                            View Project on GitHub
+                        </a>
+                    </p>
                 </div>
 
                 {/* Centered Canvas */}

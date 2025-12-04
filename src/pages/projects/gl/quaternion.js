@@ -8,7 +8,7 @@ import {
 } from "../../../components/styles.js";
 import { playPageAudio, stopPageAudio } from "../../../components/AudioManager.js";
 
-function Volcano() {
+function Quaternion() {
 
     useEffect(() => {
         playPageAudio("projects");
@@ -22,22 +22,29 @@ function Volcano() {
             <div style={{ minHeight: "150vh" }}>
 
                 {/* Title */}
-                <div style={style_ip_title}>Volcano</div>
+                <div style={style_ip_title}>Quaternion & Lighting</div>
 
                 {/* Textbox */}
                 <div style={style_ip_career_section}>
                     <div style={style_ip_about_text}>
-                        This simulation helped me get more comfortable mixing physics 
-                        with WebGL. I played around with spawning particles at random 
-                        intervals, removing them over time, and adjusting things like 
-                        velocity, spread, and how long each particle lived. It was a 
-                        simple project, but it taught me a lot about how visual effects 
-                        are built up from tons of tiny moving pieces working together.
-                        You can start and stop the simulation using the same button!
+                        This project expanded my 3D graphics skills by introducing a 
+                        WebGL trackball rotation system, real-time lighting controls, 
+                        and full material-light interaction using Phong shading. I built 
+                        a quaternion-based camera rotation, added adjustable sliders for 
+                        ambient, diffuse, specular, shininess, and light position, and 
+                        implemented a full teapot model with dynamic uniform updates.
+                        <br /><br />
+                        Instructions:
+                        <ul>
+                            <li>Left-click + drag to rotate the teapot</li>
+                            <li>Sliders adjust the light position and material properties</li>
+                            <li>Click “Reset” to restore light/material defaults</li>
+                            <li>Full Phong shading: ambient, diffuse, specular, shininess</li>
+                        </ul>
                     </div>
                    <p>
                         <a 
-                            href="https://github.com/lhosk/opengl-and-webgl/tree/main/volcano"
+                            href="https://github.com/lhosk/opengl-and-webgl/tree/main/quaternion_and_shaders"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={style_hyperlink}
@@ -47,7 +54,7 @@ function Volcano() {
                     </p>
                 </div>
 
-                {/* Centered Canvas */}
+                {/* Centered Canvas / Iframe */}
                 <div
                     style={{
                         display: "flex",
@@ -57,17 +64,19 @@ function Volcano() {
                     }}
                 >
                     <iframe
-                        src={process.env.PUBLIC_URL + "/files/volcano.html"}
-                        title="Volcano Demo"
+                        src={process.env.PUBLIC_URL + "/files/quaternion.html"}
+                        title="Lighting Demo"
                         scrolling="no"
                         style={{
-                            width: "550px",
-                            height: "620px",
+                            width: "417px",
+                            height: "950px",
                             border: "none",
                             borderRadius: "10px",
                         }}
                     />
                 </div>
+
+                <div style={{ height: "100px" }} />
 
             </div>
 
@@ -75,4 +84,4 @@ function Volcano() {
     );
 }
 
-export default Volcano;
+export default Quaternion;

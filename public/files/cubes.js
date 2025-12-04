@@ -1,5 +1,3 @@
-// Work by Lucas Hoskin
-
 // Globals
 var gl;
 var program;

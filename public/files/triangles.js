@@ -1,5 +1,3 @@
-// Work by Lucas Hoskin
-
 // the array and buffer looks like:
 // [48 values (global box), 18 values (first three points), 48 values (first individual box), 18 values (second three points), 48 values (second individual box), and so on...]
 // I should also clarify: I added a bit of extra space to the global box, just so the global doesn't overlap with parts on individual boxes. This can be seen in Lines 90:93

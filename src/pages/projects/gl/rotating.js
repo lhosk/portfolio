@@ -3,7 +3,8 @@ import {
     style_ip_bg,
     style_ip_title,
     style_ip_career_section,
-    style_ip_about_text
+    style_ip_about_text,
+    style_hyperlink
 } from "../../../components/styles.js";
 import { playPageAudio, stopPageAudio } from "../../../components/AudioManager.js";
 
@@ -30,6 +31,16 @@ function Rotating() {
                         circles around another rotating square. It's super basic, but introduced me to 
                         the fundamentals of WebGL programming.
                     </div>
+                   <p>
+                        <a 
+                            href="https://github.com/lhosk/opengl-and-webgl/tree/main/rotating-squares"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={style_hyperlink}
+                        >
+                            View Project on GitHub
+                        </a>
+                    </p>
                 </div>
 
                 {/* Centered Canvas */}
