@@ -196,7 +196,7 @@
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
             gap: "2rem",
-            padding: "8rem 3rem",
+            padding: "4rem 3rem",
             maxWidth: "1200px",
             margin: "0 auto",
         };

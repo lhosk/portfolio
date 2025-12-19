@@ -29,8 +29,10 @@ import Parallel from "../pages/projects/parallel.js";
 import Recommendation from "../pages/projects/recommendation.js";
 import Rl from "../pages/projects/rl.js";
 import Rlgl from "../pages/projects/rlgl.js";
+import Spinn from "../pages/projects/spinn.js"
 import Srgan from "../pages/projects/srgan.js";
 import Vrd from "../pages/projects/vrd.js";
+import Wave from "../pages/projects/wave.js"
 
 function Paths() {
     return (
@@ -65,8 +67,10 @@ function Paths() {
                 <Route path="/projects/recommendation" element={<Recommendation />} />
                 <Route path="/projects/rl" element={<Rl />} />
                 <Route path="/projects/rlgl" element={<Rlgl />} />
+                <Route path="/projects/spinn" element={<Spinn />} />
                 <Route path="/projects/srgan" element={<Srgan />} />
                 <Route path="/projects/vrd" element={<Vrd />} />
+                <Route path="/projects/wave" element={<Wave />} />
             </Routes>
         </>
     );
