@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cubes App</title>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">
+
+	attribute vec4 vPosition;
+	attribute vec4 vColor;
+	uniform mat4 uModelToWorld;
+    uniform mat4 uWorldToNDC;
+	varying vec4 fColor;
+
+	void main(){
+		gl_Position = uModelToWorld * uWorldToNDC * vPosition;
+		fColor = vColor;
+	}
+
+	</script>
+	<script id="fragment-shader" type="x-shader/x-fragment">
+
+	precision mediump float;
+	varying vec4 fColor;
+	void main() {
+		gl_FragColor = fColor;
+	}
+
+	</script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./mat_vec.js"></script>
+	<script type="text/javascript" src="./cubes.js"></script> 
+	<!-- <script type="text/javascript" src="./test_app.js"></script>  -->
+
+</head>
+<body>
+	<br><br>
+		<button onclick="allowCubes(true)" style="width: 254px;">Start Simulation</button>
+		<button onclick="allowCubes(false)" style="width: 254px;">Stop Simulation</button>
+	<br><br>
+	<canvas id="gl-canvas" width="512" height="512">
+	Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+</body>
+</html>
