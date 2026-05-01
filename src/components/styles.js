@@ -223,11 +223,13 @@ export const style_proj_grid = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
   gap: 'clamp(12px, 2vw, 32px)',
+  padding: '0 clamp(8px, 3vw, 48px)',
+  alignItems: 'stretch',
 };
 
 export const style_proj_card = {
   background: colors.surface,
-  border: `0.25px solid ${colors.accent}`,
+  border: `0.5px solid ${colors.border}`,
   borderRadius: '12px',
   padding: '18px',
   cursor: 'pointer',
@@ -235,6 +237,7 @@ export const style_proj_card = {
   overflow: 'hidden',
   textDecoration: 'none',
   display: 'block',
+  height: '100%',
 };
 
 export const style_proj_title = {

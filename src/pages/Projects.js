@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import {
   style_page_bg,
@@ -45,7 +45,6 @@ const yearFilters = ['All Years', '2023', '2024', '2025'];
 function Projects() {
   const [activeLang, setActiveLang] = useState('All');
   const [activeYear, setActiveYear] = useState('All Years');
-  const navigate = useNavigate();
 
   const availableLangs = activeYear === 'All Years'
     ? new Set(projectData.map(p => p.lang))
@@ -65,14 +64,14 @@ function Projects() {
     const isActive = activeLang === f;
     const isAvailable = f === 'All' || availableLangs.has(f);
     if (isActive) return style_filter_btn_active;
-    return { ...style_filter_btn, opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)' };
+    return { ...style_filter_btn, opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)', pointerEvents: isAvailable ? 'auto' : 'none' };
   };
 
   const yearBtnStyle = (y) => {
     const isActive = activeYear === y;
     const isAvailable = y === 'All Years' || availableYears.has(parseInt(y));
     if (isActive) return style_filter_btn_active;
-    return { ...style_filter_btn, opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)' };
+    return { ...style_filter_btn, opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)', pointerEvents: isAvailable ? 'auto' : 'none' };
   };
 
   return (
@@ -103,28 +102,28 @@ function Projects() {
             const lc = langColors[p.lang];
             const matched = isMatch(p);
             return (
-              <div
+              <Link
                 key={i}
-                onClick={() => matched && navigate(p.path)}
+                to={p.path}
                 style={{
-                  ...style_proj_card,
-                  position: 'relative',
+                  textDecoration: 'none',
                   display: matched ? 'block' : 'none',
-                  cursor: 'pointer',
                 }}
               >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: lc.label, letterSpacing: '1px' }}>
-                    {p.lang.toUpperCase()}
+                <div style={{ ...style_proj_card, position: 'relative', cursor: 'pointer' }}>
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: lc.label, letterSpacing: '1px' }}>
+                      {p.lang.toUpperCase()}
+                    </div>
+                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: colors.muted, fontWeight: '400' }}>
+                      {p.year}
+                    </div>
                   </div>
-                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: colors.muted, fontWeight: '400' }}>
-                    {p.year}
-                  </div>
+                  <div style={style_proj_title}>{p.title}</div>
+                  <div style={style_proj_desc}>{p.desc}</div>
                 </div>
-                <div style={style_proj_title}>{p.title}</div>
-                <div style={style_proj_desc}>{p.desc}</div>
-              </div>
+              </Link>
             );
           })}
         </div>
