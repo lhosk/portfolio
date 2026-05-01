@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.js": "/porto/static/js/main.ffae40bb.js",
+    "static/media/detection1.mp4": "/porto/static/media/detection1.468f810b41b3063034f7.mp4",
+    "static/media/rl1.mp4": "/porto/static/media/rl1.73862e9d202219e92638.mp4",
+    "static/media/rl2.mp4": "/porto/static/media/rl2.306be6476a0456cd0b20.mp4",
+    "static/media/cert6.pdf": "/porto/static/media/cert6.0106d80d376522a11ad3.pdf",
+    "static/media/cert5.pdf": "/porto/static/media/cert5.750d6bcb2c6aed474486.pdf",
+    "static/media/cert2.pdf": "/porto/static/media/cert2.1bfc10072d308d932268.pdf",
+    "static/media/cert3.pdf": "/porto/static/media/cert3.fba46e8536343efc0c10.pdf",
+    "static/media/srgan4.png": "/porto/static/media/srgan4.59595a33d8a79e086b60.png",
+    "static/media/parallel2.png": "/porto/static/media/parallel2.ea2f92604c4a39b3d725.png",
+    "static/media/parallel1.png": "/porto/static/media/parallel1.b64cba2dd1a1eb7948c7.png",
+    "static/media/rlgl.png": "/porto/static/media/rlgl.f2878ccaa781f79d0751.png",
+    "static/media/srgan3.png": "/porto/static/media/srgan3.2c12eac8081e48d3e345.png",
+    "static/media/vrd1.png": "/porto/static/media/vrd1.db84d1d390b5541b8650.png",
+    "static/media/cert4.pdf": "/porto/static/media/cert4.e55f0e39f16c83bd0b7f.pdf",
+    "static/media/mcsapf.png": "/porto/static/media/mcsapf.10cb905e1cd826e82db1.png",
+    "static/media/pinn.png": "/porto/static/media/pinn.6294cbdc1f94705d6ff0.png",
+    "static/media/mcs.png": "/porto/static/media/mcs.d7095d9b54f2e8a0e2e4.png",
+    "static/media/stochastic_waveheight.png": "/porto/static/media/stochastic_waveheight.21f4021a314154a42e46.png",
+    "static/media/comparing.png": "/porto/static/media/comparing.a633e646a42558f1fda8.png",
+    "static/media/stochastic_period.png": "/porto/static/media/stochastic_period.68997f922ad62f7d039e.png",
+    "static/media/14.png": "/porto/static/media/14.99d89d6660fe4de0055a.png",
+    "static/media/cert1.pdf": "/porto/static/media/cert1.ede98f468f4e9d55fe09.pdf",
+    "static/media/6.png": "/porto/static/media/6.a3b2b416a6fd74c7150a.png",
+    "static/media/srgan2.png": "/porto/static/media/srgan2.5f893c41dee7255d3c9b.png",
+    "static/media/srgan1.png": "/porto/static/media/srgan1.3242c480bab71ed8d2ae.png",
+    "index.html": "/porto/index.html",
+    "main.ffae40bb.js.map": "/porto/static/js/main.ffae40bb.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ffae40bb.js"
+  ]
+}

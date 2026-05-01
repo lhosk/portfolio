@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Triangles App</title>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute vec4 vPosition;
+		attribute vec4 vColor;
+		varying vec4 fColor;
+		uniform mat4 mmodelToWorld;
+		uniform mat4 mworldToNDC;
+
+		void main(){
+			gl_Position = mworldToNDC * mmodelToWorld * vPosition;
+			fColor = vColor;
+			gl_PointSize = 2.0;
+		}
+	</script>
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		varying vec4 fColor;
+		void main() {
+			gl_FragColor = fColor;
+		}
+	</script>
+	<script type="text/javascript" src="utils.js"></script>
+	<script type="text/javascript" src="mat_vec.js"></script>
+	<script type="text/javascript" src="archimedian.js"></script> 
+	
+</head>
+<body>
+	<br><br>
+		<button onclick="makeSpiral(404)" style="width:254px;">Make Spiral</button>
+		<button onclick="activateSquares()" style="width:254px;">Make Squares</button>
+	<br><br>
+	
+	<canvas id="gl-canvas" width="512" height="512">
+	Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangles App</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        attribute vec4 vColor;
+        varying vec4 fColor;
+        uniform mat4 mmodelToWorld;
+        uniform mat4 mworldToNDC;
+
+        void main(){
+            gl_Position = mworldToNDC * mmodelToWorld * vPosition;
+            fColor = vColor;
+            gl_PointSize = 2.0;
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec4 fColor;
+        void main() {
+            gl_FragColor = fColor;
+        }
+    </script>
+
+    <!-- Correct paths for your structure -->
+    <script src="utils.js"></script>
+    <script src="mat_vec.js"></script>
+    <script src="archimedian.js"></script>
+</head>
+
+<body>
+    <br><br>
+    <button onclick="makeSpiral(404)" style="width:254px;">Make Spiral</button>
+    <button onclick="activateSquares()" style="width:254px;">Make Squares</button>
+    <br><br>
+
+    <canvas id="gl-canvas" width="512" height="512">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+</body>
+</html>

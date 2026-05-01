@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Teapot App</title>
+
+	<!-- Vertex Shader -->
+	<script id="vertex-shader" type="x-shader/x-vertex">
+
+	attribute vec4 vPosition;
+	attribute vec4 vNormal;
+
+	uniform mat4 uModelView;
+	uniform mat4 uProjection;
+	uniform vec4 uLightPosition;
+
+	varying vec3 fNormal;
+	varying vec3 fLightVec;
+	varying vec3 fEyeVec;
+
+	void main() {
+		vec4 posEye = uModelView * vPosition;
+		vec3 pos = posEye.xyz;
+        
+        vec4 lightPosEye = uModelView * uLightPosition;
+		fLightVec = normalize(lightPosEye.xyz - pos);
+
+        fEyeVec   = normalize(-pos);
+		fNormal   = normalize((uModelView * vNormal).xyz);
+
+		gl_Position = uProjection * posEye;
+	}
+
+	</script>
+
+	<!-- Fragment Shader -->
+	<script id="fragment-shader" type="x-shader/x-fragment">
+
+	precision mediump float;
+
+	varying vec3 fNormal;
+	varying vec3 fLightVec;
+	varying vec3 fEyeVec;
+
+	uniform vec4 uAmbientProduct;
+	uniform vec4 uDiffuseProduct;
+	uniform vec4 uSpecularProduct;
+	uniform float uShininess;
+
+	void main() {
+		vec3 N = normalize(fNormal);
+		vec3 L = normalize(fLightVec);
+		vec3 E = normalize(fEyeVec);
+
+		vec3 R = reflect(-L, N);
+
+		float Kd = max(dot(L, N), 0.0);
+		float Ks = pow(max(dot(R, E), 0.0), uShininess);
+
+		if (dot(L, N) < 0.0) {
+			Ks = 0.0;
+		}
+
+		gl_FragColor = uAmbientProduct +
+					   uDiffuseProduct * Kd +
+					   uSpecularProduct * Ks;
+	}
+
+	</script>
+
+	<!-- Dependencies -->
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./mat_vec.js"></script>
+	<script type="text/javascript" src="./MV.js"></script>
+	<script type="text/javascript" src="./initShaders.js"></script>
+	<script type="text/javascript" src="./createTeapotData.js"></script>
+	<script type="text/javascript" src="./patches.js"></script>
+	<script type="text/javascript" src="./vertices.js"></script>
+	<script type="text/javascript" src="./quaternion.js"></script>
+
+	<style>
+		body { background:#000000; color:#eee; font-family:sans-serif; }
+		.sliderRow { margin-top:6px; }
+		label { width:180px; display:inline-block; }
+		button { margin-top:10px; padding:6px 12px; }
+	</style>
+</head>
+
+<body>
+
+	<canvas id="gl-canvas" width="400" height="400">
+		Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+
+	<!-- Sliders -->
+	<div class="sliderRow"><label>Light X</label><input type="range" id="lightX" min="-300" max="300" step="1" value="0"></div>
+	<div class="sliderRow"><label>Light Y</label><input type="range" id="lightY" min="-300" max="300" step="1" value="0"></div>
+	<div class="sliderRow"><label>Light Z</label><input type="range" id="lightZ" min="-200" max="250" step="1" value="100"></div>
+	<div class="sliderRow"><label>Diffuse Intensity</label><input type="range" id="lightDiffuseIntensity" min="0" max="2" step="0.01" value="1"></div>
+	<div class="sliderRow"><label>Specular Intensity</label><input type="range" id="lightSpecularIntensity" min="0" max="2" step="0.01" value="1"></div>
+	<div class="sliderRow"><label>Ambient Red</label><input type="range" id="ambientRed"   min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Ambient Green</label><input type="range" id="ambientGreen" min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Ambient Blue</label><input type="range" id="ambientBlue"  min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Diffuse Red</label><input type="range" id="diffuseRed"   min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Diffuse Green</label><input type="range" id="diffuseGreen" min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Diffuse Blue</label><input type="range" id="diffuseBlue"  min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Specular Red</label><input type="range" id="specularRed"   min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Specular Green</label><input type="range" id="specularGreen" min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Specular Blue</label><input type="range" id="specularBlue"  min="0" max="1" step="0.01" value="0.5"></div>
+	<div class="sliderRow"><label>Shininess</label><input type="range" id="shininessSlider" min="1" max="100" step="1" value="25"></div>
+
+	<button id="resetBtn">Reset</button>
+</body>
+</html>
