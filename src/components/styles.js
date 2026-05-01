@@ -24,7 +24,7 @@ export const style_page_bg = {
 };
 
 export const style_section = {
-  padding: '36px 36px 48px',
+  padding: 'clamp(24px, 4vw, 48px) clamp(8px, 3vw, 48px)',
 };
 
 export const style_section_eyebrow = {
@@ -37,14 +37,14 @@ export const style_section_eyebrow = {
 };
 
 export const style_section_title = {
-  fontSize: '34px',
+  fontSize: 'clamp(24px, 3vw, 34px)',
+  // fontSize: '34px',
   color: colors.text,
   marginBottom: '24px',
   textTransform: 'uppercase',
   letterSpacing: '2px',
 };
 
-// HOME
 export const style_home = {
   minHeight: 'calc(100vh - 64px)',
   position: 'relative',
@@ -52,12 +52,12 @@ export const style_home = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  padding: '48px 36px',
+  padding: '48px 36px 48px 80px',  // bump this last value up
 };
 
 export const style_home_eyebrow = {
   fontFamily: fonts.mono,
-  fontSize: '22px',
+  fontSize: 'clamp(16px, 1.5vw, 22px)',
   color: colors.accent,
   letterSpacing: '3px',
   textTransform: 'uppercase',
@@ -65,16 +65,16 @@ export const style_home_eyebrow = {
 };
 
 export const style_home_name = {
-  fontSize: '72px',
+  fontSize: 'clamp(36px, 5vw, 72px)',
   lineHeight: '1.05',
   color: colors.text,
   marginBottom: '16px',
 };
 
 export const style_home_subtitle = {
-  fontSize: '22px',
+  fontSize: 'clamp(14px, 1.5vw, 22px)',
   color: colors.muted,
-  maxWidth: '540px',
+  maxWidth: '570px',
   lineHeight: '1.8',
   marginBottom: '36px',
 };
@@ -91,31 +91,32 @@ export const style_home_section_label = {
 export const style_home_section_line = {
   height: '2px',
   background: colors.accent,
-  width: '180px',
+  width: '100%',
   marginBottom: '16px',
 };
 
 export const style_home_tag = {
-  fontFamily: fonts.mono,
+  fontFamily: fonts.serif,
   fontSize: '17px',
-  padding: '7px 14px',
-  borderRadius: '4px',
-  border: `0.5px solid ${colors.border}`,
+  padding: '11px 8.5px',
+  borderRadius: '9px',
+  border: `0.5px solid ${colors.muted}`,
   color: colors.muted,
   background: colors.surface,
+  textAlign: 'center',
 };
 
 export const style_contact_btn = {
   display: 'flex',
   alignItems: 'center',
-  padding: '11px 22px',
-  borderRadius: '12px',
+  padding: '11px 16px',
+  borderRadius: '9px',
   fontSize: '17px',
   cursor: 'pointer',
   transition: 'all 0.18s',
-  border: `0.5px solid ${colors.border}`,
+  border: `0.5px solid ${colors.muted}`,
   background: colors.surface,
-  color: colors.text,
+  color: colors.muted,
   fontFamily: fonts.serif,
   fontWeight: 'bold',
   textDecoration: 'none',
@@ -131,14 +132,15 @@ export const style_nav = {
   padding: '0 28px',
   height: '64px',
   borderBottom: `0.5px solid ${colors.border}`,
-  background: 'rgba(0,0,0,0.1)',
+  background: 'rgba(153,151,152,0.85)',
+  backdropFilter: 'blur(10px)',
   position: 'sticky',
   top: 0,
-  zIndex: 100,
+  zIndex: 1000,
 };
 
 export const style_nav_logo = {
-  fontSize: '22px',
+  fontSize: 'clamp(8px, 2.2vw, 32px)',
   color: colors.text,
   letterSpacing: '1px',
   textTransform: 'uppercase',
@@ -146,18 +148,49 @@ export const style_nav_logo = {
   fontWeight: 'bold',
 };
 
+// export const style_nav_link = {
+//   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
+//   borderRadius: '20px',
+//   fontSize: 'clamp(8px, 2vw, 24px)',
+//   color: colors.muted,
+//   cursor: 'pointer',
+//   letterSpacing: '1px',
+//   border: 'none',
+//   background: 'none',
+//   fontFamily: fonts.serif,
+//   fontWeight: 'bold',
+//   textTransform: 'uppercase',
+//   textDecoration: 'none',
+// };
+
+// export const style_nav_link_active = {
+//   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
+//   borderRadius: '20px',
+//   fontSize: 'clamp(8px, 2vw, 24px)',
+//   color: '#fff',
+//   background: colors.accent,
+//   cursor: 'pointer',
+//   letterSpacing: '1px',
+//   border: 'none',
+//   fontFamily: fonts.serif,
+//   fontWeight: 'bold',
+//   textTransform: 'uppercase',
+//   textDecoration: 'none',
+// };
+
 export const style_nav_link = {
-  padding: '6px 14px',
+  padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
   borderRadius: '20px',
-  fontSize: '16px',
+  fontSize: 'clamp(12px, 2.2vw, 28px)',
   color: colors.muted,
   cursor: 'pointer',
-  letterSpacing: '1px',
+  letterSpacing: '0px',
   border: 'none',
   background: 'none',
   fontFamily: fonts.serif,
   fontWeight: 'bold',
   textTransform: 'uppercase',
+  textDecoration: 'none',
 };
 
 export const style_nav_link_active = {
@@ -183,18 +216,18 @@ export const style_filter_btn_active = {
   ...style_filter_btn,
   background: colors.accent,
   color: '#fff',
-  borderColor: colors.accent,
+  border: `0.5px solid ${colors.accent}`,
 };
 
 export const style_proj_grid = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: '10px',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+  gap: 'clamp(12px, 2vw, 32px)',
 };
 
 export const style_proj_card = {
   background: colors.surface,
-  border: `0.5px solid ${colors.border}`,
+  border: `0.25px solid ${colors.accent}`,
   borderRadius: '12px',
   padding: '18px',
   cursor: 'pointer',
@@ -269,7 +302,7 @@ export const style_skill_group = {
 export const style_skill_group_title = {
   fontFamily: fonts.mono,
   fontSize: '13px',
-  color: colors.accent,
+  color: colors.text,
   marginBottom: '8px',
   letterSpacing: '1px',
 };
