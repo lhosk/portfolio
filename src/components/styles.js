@@ -2,7 +2,7 @@
 
 export const colors = {
   bg: '#999798',
-  accent: '#FF4F00',
+  accent: '#d14200',
   text: '#1a1a1a',
   muted: '#3a3838',
   surface: 'rgba(0,0,0,0.1)',
@@ -181,7 +181,7 @@ export const style_nav_logo = {
 export const style_nav_link = {
   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
   borderRadius: '20px',
-  fontSize: 'clamp(12px, 2.2vw, 28px)',
+  fontSize: 'clamp(10px, 2.2vw, 28px)',
   color: colors.muted,
   cursor: 'pointer',
   letterSpacing: '0px',

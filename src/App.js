@@ -1,9 +1,11 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import Projects from './pages/Projects';
 import Career from './pages/Career';
 import About from './pages/About';
+import Projects from './pages/Projects';
+import Papers from './pages/Papers';
+// Project Pages
 import Cnn from './pages/projects/cnn';
 import Connect4 from './pages/projects/connect4';
 import Detection from './pages/projects/detection';
@@ -26,6 +28,9 @@ import Volcano from './pages/projects/gl/volcano';
 import Cubes from './pages/projects/gl/cubes';
 import Perspective from './pages/projects/gl/perspective';
 import Quaternion from './pages/projects/gl/quaternion';
+// Papers Pages
+import ShutTheBox from './pages/papers/shutthebox';
+import PhononIntro from './pages/papers/phononintro';
 
 function App() {
   return (
@@ -33,8 +38,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/papers" element={<Papers />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
+        <Route path="/papers/shutthebox" element={<ShutTheBox/>} />
+        <Route path="/papers/phononintro" element={<PhononIntro/>} />
         <Route path="/projects/cnn" element={<Cnn />} />
         <Route path="/projects/connect4" element={<Connect4 />} />
         <Route path="/projects/detection" element={<Detection />} />
