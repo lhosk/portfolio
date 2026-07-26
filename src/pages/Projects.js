@@ -81,7 +81,7 @@ function Projects() {
         <div style={style_section_eyebrow}>Work</div>
         <div style={style_section_title}>PROJECTS</div>
 
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'clamp(4px, 0.6vw, 8px)', marginBottom: '10px', flexWrap: 'wrap' }}>
           {langFilters.map((f) => (
             <button key={f} style={langBtnStyle(f)} onClick={() => setActiveLang(f)}>
               {f === 'All' ? `All (${projectData.length})` : f}
@@ -89,7 +89,7 @@ function Projects() {
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 'clamp(4px, 0.6vw, 8px)', marginBottom: '24px', flexWrap: 'wrap' }}>
           {yearFilters.map((y) => (
             <button key={y} style={yearBtnStyle(y)} onClick={() => setActiveYear(y)}>
               {y}
@@ -102,21 +102,14 @@ function Projects() {
             const lc = langColors[p.lang];
             const matched = isMatch(p);
             return (
-              <Link
-                key={i}
-                to={p.path}
-                style={{
-                  textDecoration: 'none',
-                  display: matched ? 'block' : 'none',
-                }}
-              >
+              <Link key={i} to={p.path} style={{ textDecoration: 'none', display: matched ? 'block' : 'none' }}>
                 <div style={{ ...style_proj_card, position: 'relative', cursor: 'pointer' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: lc.label, letterSpacing: '1px' }}>
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 'clamp(4px, 0.5vw, 6px)', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'clamp(4px, 0.6vw, 8px)' }}>
+                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 'clamp(10px, 1.1vw, 13px)', color: lc.label, letterSpacing: '1px' }}>
                       {p.lang.toUpperCase()}
                     </div>
-                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: colors.muted, fontWeight: '400' }}>
+                    <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 'clamp(9px, 1vw, 11px)', color: colors.muted, fontWeight: '400' }}>
                       {p.year}
                     </div>
                   </div>

@@ -29,7 +29,7 @@ export const style_section = {
 
 export const style_section_eyebrow = {
   fontFamily: fonts.mono,
-  fontSize: '16px',
+  fontSize: 'clamp(12px, 1.4vw, 16px)',
   color: colors.accent,
   letterSpacing: '2.5px',
   textTransform: 'uppercase',
@@ -37,7 +37,7 @@ export const style_section_eyebrow = {
 };
 
 export const style_section_title = {
-  fontSize: 'clamp(26px, 4vw, 40px)',
+  fontSize: 'clamp(22px, 4vw, 40px)',
   color: colors.text,
   marginBottom: '24px',
   textTransform: 'uppercase',
@@ -147,36 +147,6 @@ export const style_nav_logo = {
   fontWeight: 'bold',
 };
 
-// export const style_nav_link = {
-//   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
-//   borderRadius: '20px',
-//   fontSize: 'clamp(8px, 2vw, 24px)',
-//   color: colors.muted,
-//   cursor: 'pointer',
-//   letterSpacing: '1px',
-//   border: 'none',
-//   background: 'none',
-//   fontFamily: fonts.serif,
-//   fontWeight: 'bold',
-//   textTransform: 'uppercase',
-//   textDecoration: 'none',
-// };
-
-// export const style_nav_link_active = {
-//   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
-//   borderRadius: '20px',
-//   fontSize: 'clamp(8px, 2vw, 24px)',
-//   color: '#fff',
-//   background: colors.accent,
-//   cursor: 'pointer',
-//   letterSpacing: '1px',
-//   border: 'none',
-//   fontFamily: fonts.serif,
-//   fontWeight: 'bold',
-//   textTransform: 'uppercase',
-//   textDecoration: 'none',
-// };
-
 export const style_nav_link = {
   padding: 'clamp(4px, 0.5vw, 6px) clamp(6px, 1vw, 14px)',
   borderRadius: '20px',
@@ -201,8 +171,8 @@ export const style_nav_link_active = {
 // PROJECTS
 export const style_filter_btn = {
   fontFamily: fonts.mono,
-  fontSize: '15px',
-  padding: '7px 16px',
+  fontSize: 'clamp(11px, 1.3vw, 15px)',
+  padding: 'clamp(5px, 0.6vw, 7px) clamp(10px, 1.2vw, 16px)',
   borderRadius: '20px',
   border: `0.5px solid ${colors.border}`,
   background: colors.surface,
@@ -220,17 +190,17 @@ export const style_filter_btn_active = {
 
 export const style_proj_grid = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-  gap: 'clamp(12px, 2vw, 32px)',
-  padding: '0 clamp(8px, 3vw, 48px)',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(clamp(180px, 25vw, 260px), 1fr))',
+  gap: 'clamp(8px, 2vw, 32px)',
+  padding: '0 clamp(4px, 3vw, 48px)',
   alignItems: 'stretch',
 };
 
 export const style_proj_card = {
   background: colors.surface,
   border: `0.5px solid ${colors.border}`,
-  borderRadius: '12px',
-  padding: '18px',
+  borderRadius: 'clamp(8px, 1vw, 12px)',
+  padding: 'clamp(12px, 1.5vw, 18px)',
   cursor: 'pointer',
   position: 'relative',
   overflow: 'hidden',
@@ -240,14 +210,14 @@ export const style_proj_card = {
 };
 
 export const style_proj_title = {
-  fontSize: '16px',
+  fontSize: 'clamp(13px, 1.4vw, 16px)',
   color: colors.text,
   lineHeight: '1.4',
   marginBottom: '6px',
 };
 
 export const style_proj_desc = {
-  fontSize: '13px',
+  fontSize: 'clamp(10px, 1.1vw, 13px)',
   color: colors.muted,
   lineHeight: '1.5',
   fontFamily: fonts.mono,
@@ -257,7 +227,7 @@ export const style_proj_desc = {
 // CAREER
 export const style_career_label = {
   fontFamily: fonts.mono,
-  fontSize: 'clamp(14px, 1.8vw, 18px)',
+  fontSize: 'clamp(12px, 1.4vw, 15px)',
   color: colors.accent,
   letterSpacing: '2px',
   textTransform: 'uppercase',
@@ -267,13 +237,13 @@ export const style_career_label = {
 export const style_career_item = {
   display: 'flex',
   gap: '16px',
-  padding: '14px 0',
+  padding: '12px 0',
   borderBottom: `0.5px solid ${colors.border}`,
 };
 
 export const style_career_year = {
   fontFamily: fonts.mono,
-  fontSize: 'clamp(12px, 1.4vw, 15px)',
+  fontSize: 'clamp(10px, 1.2vw, 13px)',
   color: colors.muted,
   minWidth: '110px',
   paddingTop: '2px',
@@ -281,13 +251,13 @@ export const style_career_year = {
 };
 
 export const style_career_role = {
-  fontSize: 'clamp(16px, 2vw, 22px)',
+  fontSize: 'clamp(14px, 1.6vw, 18px)',
   color: colors.text,
   marginBottom: '3px',
 };
 
 export const style_career_place = {
-  fontSize: 'clamp(13px, 1.5vw, 17px)',
+  fontSize: 'clamp(11px, 1.3vw, 14px)',
   color: colors.muted,
   fontFamily: fonts.mono,
   fontWeight: '400',
@@ -311,8 +281,8 @@ export const style_skill_group_title = {
 
 export const style_chip = {
   fontFamily: fonts.mono,
-  fontSize: 'clamp(11px, 1.3vw, 14px)',
-  padding: 'clamp(4px, 0.5vw, 6px) clamp(8px, 0.8vw, 12px)',
+  fontSize: 'clamp(9px, 1.1vw, 12px)',
+  padding: 'clamp(3px, 0.4vw, 5px) clamp(6px, 0.7vw, 10px)',
   borderRadius: '4px',
   background: 'rgba(0,0,0,0.12)',
   color: colors.muted,
@@ -324,7 +294,7 @@ export const style_cert_item = {
   background: colors.surface,
   border: `0.5px solid ${colors.border}`,
   borderRadius: '12px',
-  padding: 'clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px)',
+  padding: 'clamp(8px, 1vw, 12px) clamp(10px, 1.2vw, 14px)',
 };
 
 // ABOUT

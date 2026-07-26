@@ -107,7 +107,7 @@ const coursework = [
 function Section({ label, children, defaultOpen = true }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div style={{ marginBottom: '28px' }}>
+    <div style={{ marginBottom: '10px' }}>
       <div onClick={() => setOpen(!open)}
         style={{ ...style_career_label, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', userSelect: 'none' }}>
         <span style={{ fontSize: 'clamp(18px, 1.5vw, 24px)', transition: 'transform 0.2s' }}>{open ? '▲' : '▼'}</span>
@@ -129,20 +129,18 @@ function Career() {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
-  // Shared mobile vs desktop text sizes
   const sz = {
-    sub:     isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
-    exam:    isMobile ? '10px' : 'clamp(11px, 1.2vw, 14px)',
-    examLi:  isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
-    bullet:  isMobile ? '10px' : 'clamp(12px, 1.4vw, 16px)',
-    skillT:  isMobile ? '12px' : 'clamp(14px, 1.5vw, 18px)',
-    certN:   isMobile ? '12px' : 'clamp(14px, 1.5vw, 18px)',
-    certM:   isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
-    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 14px)',
-    cwLi:    isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
+    sub:     isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
+    exam:    isMobile ? '10px' : 'clamp(11px, 1.2vw, 12px)',
+    examLi:  isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
+    bullet:  isMobile ? '10px' : 'clamp(12px, 1.4vw, 14px)',
+    skillT:  isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
+    certN:   isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
+    certM:   isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
+    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 12px)',
+    cwLi:    isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
   };
 
-  // On mobile: date on top, content full width. On desktop: side by side.
   const itemStyle = isMobile
     ? { ...style_career_item, flexDirection: 'column', gap: '4px' }
     : style_career_item;
@@ -171,7 +169,7 @@ function Career() {
                   <div>
                     <div onClick={() => setExamOpen(!examOpen)}
                       style={{ fontFamily: fonts.mono, fontSize: sz.exam, color: colors.muted, cursor: 'pointer', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ color: colors.accent }}>{examOpen ? '▲' : '▼'}</span> Comprehensive Exam Topics
+                      <span style={{ color: colors.accent, fontSize: '12px' }}>{examOpen ? '▲' : '▼'}</span> Comprehensive Exam Topics
                     </div>
                     {examOpen && (
                       <ul style={{ listStyle: 'none', padding: 0, marginTop: '8px' }}>

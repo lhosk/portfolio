@@ -29,35 +29,35 @@ const contactLinks = [
 const InfoPanel = ({ facts, contactLinks, copyEmail, copied }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
     <div style={{ ...style_cert_item, padding: '20px' }}>
-      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 15px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Quick Facts</div>
+      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Quick Facts</div>
       {facts.map((f, i) => (
         <div key={i} style={{ display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginBottom: i < facts.length - 1 ? '10px' : 0, borderBottom: i < facts.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 15px)', color: colors.accent, letterSpacing: '1px', marginBottom: '3px' }}>{f.label.toUpperCase()}</div>
-          <div style={{ fontSize: 'clamp(15px, 1.8vw, 19px)', color: colors.muted }}>{f.value}</div>
+          <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '1px', marginBottom: '3px' }}>{f.label.toUpperCase()}</div>
+          <div style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: colors.muted }}>{f.value}</div>
         </div>
       ))}
     </div>
     <div style={{ ...style_cert_item, padding: '20px' }}>
-      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 15px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Contact</div>
+      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Contact</div>
       {contactLinks.map((l, i) => (
         <div key={i}>
-          <a href={l.href} target="_blank" rel="noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', padding: '10px 0' }}>
-            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 18px)', color: colors.text }}>{l.label}</span>
-            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 17px)', color: colors.accent }}>{l.value}</span>
+          <a href={l.href} target="_blank" rel="noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', padding: '8px 0' }}>
+            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 14px)', color: colors.text }}>{l.label}</span>
+            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 15px)', color: colors.accent }}>{l.value}</span>
           </a>
           <div style={{ height: '0.5px', background: colors.border }} />
         </div>
       ))}
       <div onClick={copyEmail} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', padding: '10px 0' }}>
-        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 18px)', color: colors.text }}>Email</span>
-        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 17px)', color: colors.accent }}>{copied ? 'Copied!' : 'LHoskin.Work@gmail.com'}</span>
+        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 14px)', color: colors.text }}>Email</span>
+        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 15px)', color: colors.accent }}>{copied ? 'Copied!' : 'LHoskin.Work@gmail.com'}</span>
       </div>
     </div>
   </div>
 );
 
 const BioText = () => (
-  <div style={{ fontSize: 'clamp(14px, 1.5vw, 22px)', color: colors.muted, lineHeight: '1.8' }}>
+  <div style={{ fontSize: 'clamp(14px, 1.4vw, 19px)', color: colors.muted, lineHeight: '1.8' }}>
     <p style={{ marginBottom: '14px' }}>
       I recently finished degrees in Computer Science and Applied Physics at University of North Carolina at Charlotte.
       I got into physics in high school and stuck with it through undergrad, but eventually I realized I wanted to do more than just solve equations on paper.
