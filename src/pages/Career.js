@@ -104,13 +104,22 @@ const coursework = [
   },
 ];
 
-function formatDate(years, isMobile) {
-  if (!isMobile) return years;
-  return years.replace(' to ', '\nto\n');
+function Section({ label, children, defaultOpen = true }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div style={{ marginBottom: '28px' }}>
+      <div onClick={() => setOpen(!open)}
+        style={{ ...style_career_label, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', userSelect: 'none' }}>
+        <span style={{ fontSize: 'clamp(18px, 1.5vw, 24px)', transition: 'transform 0.2s' }}>{open ? '▲' : '▼'}</span>
+        <span>{label}</span>
+      </div>
+      {open && children}
+    </div>
+  );
 }
 
 function Career() {
-  const [examOpen, setExamOpen] = useState(true);
+  const [examOpen, setExamOpen] = useState(window.innerWidth >= 768);
   const [openCert, setOpenCert] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -120,38 +129,54 @@ function Career() {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
+  // Shared mobile vs desktop text sizes
+  const sz = {
+    sub:     isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
+    exam:    isMobile ? '10px' : 'clamp(11px, 1.2vw, 14px)',
+    examLi:  isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
+    bullet:  isMobile ? '10px' : 'clamp(12px, 1.4vw, 16px)',
+    skillT:  isMobile ? '12px' : 'clamp(14px, 1.5vw, 18px)',
+    certN:   isMobile ? '12px' : 'clamp(14px, 1.5vw, 18px)',
+    certM:   isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
+    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 14px)',
+    cwLi:    isMobile ? '10px' : 'clamp(12px, 1.3vw, 15px)',
+  };
+
+  // On mobile: date on top, content full width. On desktop: side by side.
+  const itemStyle = isMobile
+    ? { ...style_career_item, flexDirection: 'column', gap: '4px' }
+    : style_career_item;
+
+  const yearStyle = isMobile
+    ? { ...style_career_year, fontSize: '10px', minWidth: 'auto', marginBottom: '2px' }
+    : { ...style_career_year, minWidth: '110px' };
+
   return (
     <div style={style_page_bg}>
       <NavBar />
       <div style={style_section}>
         <div style={style_section_title}>CAREER</div>
 
-        {/* Education */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={style_career_label}>Education</div>
+        <Section label="Education">
           {education.map((e, i) => (
-            <div key={i} style={{ ...style_career_item, borderBottom: i < education.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-              <div style={{ ...style_career_year, whiteSpace: 'pre-line', minWidth: isMobile ? '60px' : '110px' }}>
-                {formatDate(e.years, isMobile)}
-              </div>
+            <div key={i} style={{ ...itemStyle, borderBottom: i < education.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
+              <div style={yearStyle}>{e.years}</div>
               <div style={{ flex: 1 }}>
                 <div style={style_career_role}>{e.role}</div>
                 <div style={style_career_place}>{e.place}</div>
                 {e.sub && (
-                  <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, fontWeight: '400', marginBottom: '4px' }}>{e.sub}</div>
+                  <div style={{ fontFamily: fonts.mono, fontSize: sz.sub, color: colors.accent, fontWeight: '400', marginBottom: '4px' }}>{e.sub}</div>
                 )}
                 {e.role === 'M.S. in Applied Physics' && (
                   <div>
-                    <div
-                      onClick={() => setExamOpen(!examOpen)}
-                      style={{ fontFamily: fonts.mono, fontSize: '12px', color: colors.muted, cursor: 'pointer', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}
-                    >
+                    <div onClick={() => setExamOpen(!examOpen)}
+                      style={{ fontFamily: fonts.mono, fontSize: sz.exam, color: colors.muted, cursor: 'pointer', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <span style={{ color: colors.accent }}>{examOpen ? '▲' : '▼'}</span> Comprehensive Exam Topics
                     </div>
                     {examOpen && (
                       <ul style={{ listStyle: 'none', padding: 0, marginTop: '8px' }}>
                         {examTopics.map((t, j) => (
-                          <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: '13px', color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '2px 0' }}>
+                          <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.examLi, color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '2px 0' }}>
                             <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{t}
                           </li>
                         ))}
@@ -162,22 +187,18 @@ function Career() {
               </div>
             </div>
           ))}
-        </div>
+        </Section>
 
-        {/* Experience */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={style_career_label}>Experience</div>
+        <Section label="Experience" defaultOpen={!isMobile}>
           {experience.map((e, i) => (
-            <div key={i} style={{ ...style_career_item, borderBottom: i < experience.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-              <div style={{ ...style_career_year, whiteSpace: 'pre-line', minWidth: isMobile ? '60px' : '110px' }}>
-                {formatDate(e.years, isMobile)}
-              </div>
+            <div key={i} style={{ ...itemStyle, borderBottom: i < experience.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
+              <div style={yearStyle}>{e.years}</div>
               <div style={{ flex: 1 }}>
                 <div style={style_career_role}>{e.role}</div>
                 <div style={style_career_place}>{e.place}</div>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {e.bullets.map((b, j) => (
-                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: '14px', color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '1px 0' }}>
+                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.bullet, color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '1px 0' }}>
                       <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{b}
                     </li>
                   ))}
@@ -185,61 +206,50 @@ function Career() {
               </div>
             </div>
           ))}
-        </div>
+        </Section>
 
-        {/* Skills */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={style_career_label}>Skills</div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
+        <Section label="Skills" defaultOpen={!isMobile}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '6px' : '10px' }}>
             {skills.map((s, i) => (
               <div key={i} style={style_cert_item}>
-                <div style={{ fontSize: '15px', color: colors.text, marginBottom: '8px' }}>{s.title}</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-                  {s.chips.map((c) => <span key={c} style={style_chip}>{c}</span>)}
+                <div style={{ fontSize: sz.skillT, color: colors.text, marginBottom: isMobile ? '5px' : '8px' }}>{s.title}</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '3px' : '5px' }}>
+                  {s.chips.map((c) => <span key={c} style={{ ...style_chip, ...(isMobile ? { fontSize: '9px', padding: '3px 6px' } : {}) }}>{c}</span>)}
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        {/* Certificates */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={style_career_label}>Certificates</div>
+        <Section label="Certificates" defaultOpen={!isMobile}>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '8px' }}>
             {certificates.map((c, i) => (
               <div key={i}>
-                <div
-                  onClick={() => setOpenCert(openCert === i ? null : i)}
-                  style={{ ...style_cert_item, cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                >
+                <div onClick={() => setOpenCert(openCert === i ? null : i)}
+                  style={{ ...style_cert_item, cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <div style={{ fontSize: '15px', color: colors.text, marginBottom: '3px' }}>{c.name}</div>
-                    <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted, fontWeight: '400' }}>{c.meta}</div>
+                    <div style={{ fontSize: sz.certN, color: colors.text, marginBottom: '3px' }}>{c.name}</div>
+                    <div style={{ fontFamily: fonts.mono, fontSize: sz.certM, color: colors.muted, fontWeight: '400' }}>{c.meta}</div>
                   </div>
-                  <span style={{ fontFamily: fonts.mono, fontSize: '12px', color: colors.accent, marginLeft: '12px' }}>{openCert === i ? '▲' : '▼'}</span>
+                  <span style={{ fontFamily: fonts.mono, fontSize: sz.certArr, color: colors.accent, marginLeft: '12px' }}>{openCert === i ? '▲' : '▼'}</span>
                 </div>
                 {openCert === i && (
-                  <iframe
-                    src={c.file}
-                    title={c.name}
-                    style={{ width: '100%', height: '500px', border: 'none', borderRadius: '12px', marginTop: '8px' }}
-                  />
+                  <iframe src={c.file} title={c.name}
+                    style={{ width: '100%', height: isMobile ? '300px' : '500px', border: 'none', borderRadius: '12px', marginTop: '8px' }} />
                 )}
               </div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        {/* Coursework */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={style_career_label}>Related Coursework</div>
+        <Section label="Related Coursework" defaultOpen={!isMobile}>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
             {coursework.map((group, i) => (
               <div key={i} style={style_cert_item}>
-                <div style={{ fontSize: '15px', color: colors.text, marginBottom: '8px' }}>{group.title}</div>
+                <div style={{ fontSize: sz.skillT, color: colors.text, marginBottom: '8px' }}>{group.title}</div>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {group.courses.map((c, j) => (
-                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: '13px', color: colors.muted, fontWeight: '400', lineHeight: '1.8' }}>
+                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.cwLi, color: colors.muted, fontWeight: '400', lineHeight: '1.8' }}>
                       <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{c}
                     </li>
                   ))}
@@ -247,7 +257,7 @@ function Career() {
               </div>
             ))}
           </div>
-        </div>
+        </Section>
 
         <div style={{ height: '80px' }} />
       </div>

@@ -38,19 +38,24 @@ function HomePage() {
         <div style={style_home_subtitle}>
           Applied physics and CS grad student at UNC Charlotte. I spend most of my time on scientific computing, data science, machine learning, and simulations.
         </div>
-        <div style={style_home_section_label}>Languages</div>
-        <div style={{...style_home_section_line, maxWidth: '680px'}} />
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '36px' }}>
-          {languages.map((lang) => (
-            <span key={lang} style={style_home_tag}>{lang}</span>
-          ))}
+        <div style={{ width: 'fit-content', marginBottom: '36px' }}>
+          <div style={style_home_section_label}>Languages</div>
+          <div style={style_home_section_line} />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+            {languages.map((lang) => (
+              <span key={lang} style={style_home_tag}>{lang}</span>
+            ))}
+          </div>
         </div>
-        <div style={style_home_section_label}>Contact Me</div>
-        <div style={{...style_home_section_line, maxWidth: '365px'}} />
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          <a style={style_contact_btn} onClick={copyEmail}>{copied ? 'COPIED!' : 'EMAIL'}</a>
-          <a style={style_contact_btn} href="https://github.com/lhosk" target="_blank" rel="noreferrer">GITHUB</a>
-          <a style={style_contact_btn} href="https://linkedin.com/in/lhosk" target="_blank" rel="noreferrer">LINKEDIN</a>
+        <div style={{ width: 'fit-content' }}>
+          <div style={style_home_section_label}>Contact Me / Socials</div>
+          <div style={style_home_section_line} />
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <a style={style_contact_btn} onClick={copyEmail}>{copied ? 'COPIED!' : 'Email'}</a>
+          <a style={style_contact_btn} href="https://github.com/lhosk" target="_blank" rel="noreferrer">GitHub</a>
+          <a style={style_contact_btn} href="https://linkedin.com/in/lhosk" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a style={style_contact_btn} href="https://open.spotify.com/user/b9sdhtywj28lh1yg15zfjg3s6" target="_blank" rel="noreferrer">Spotify</a>
+          </div>
         </div>
       </div>
     </div>

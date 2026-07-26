@@ -53,9 +53,7 @@ function PhononIntro() {
       <NavBar />
       <div style={style_section}>
         <div style={style_section_title}>
-          Introduction to Phonons
-          <br />
-          &amp; Quantum Mechanics
+          Introduction to Phonons &amp; Quantum Mechanics (In Progress)
         </div>
 
         {/* ── Meta ── */}

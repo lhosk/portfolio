@@ -37,8 +37,7 @@ export const style_section_eyebrow = {
 };
 
 export const style_section_title = {
-  fontSize: 'clamp(24px, 3vw, 34px)',
-  // fontSize: '34px',
+  fontSize: 'clamp(26px, 4vw, 40px)',
   color: colors.text,
   marginBottom: '24px',
   textTransform: 'uppercase',
@@ -52,7 +51,7 @@ export const style_home = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  padding: '48px 36px 48px 80px',  // bump this last value up
+  padding: 'clamp(24px, 4vw, 48px) clamp(20px, 3vw, 36px) clamp(24px, 4vw, 48px) clamp(24px, 6vw, 80px)',
 };
 
 export const style_home_eyebrow = {
@@ -65,23 +64,23 @@ export const style_home_eyebrow = {
 };
 
 export const style_home_name = {
-  fontSize: 'clamp(36px, 5vw, 72px)',
+  fontSize: 'clamp(42px, 6vw, 72px)',
   lineHeight: '1.05',
   color: colors.text,
   marginBottom: '16px',
 };
 
 export const style_home_subtitle = {
-  fontSize: 'clamp(14px, 1.5vw, 22px)',
+  fontSize: 'clamp(15px, 1.8vw, 22px)',
   color: colors.muted,
-  maxWidth: '570px',
+  maxWidth: 'min(570px, 100%)',
   lineHeight: '1.8',
   marginBottom: '36px',
 };
 
 export const style_home_section_label = {
   fontFamily: fonts.mono,
-  fontSize: '18px',
+  fontSize: 'clamp(14px, 1.5vw, 18px)',
   color: colors.muted,
   textTransform: 'uppercase',
   letterSpacing: '2px',
@@ -97,8 +96,8 @@ export const style_home_section_line = {
 
 export const style_home_tag = {
   fontFamily: fonts.serif,
-  fontSize: '17px',
-  padding: '11px 8.5px',
+  fontSize: 'clamp(13px, 1.5vw, 17px)',
+  padding: 'clamp(7px, 1vw, 11px) clamp(6px, 0.8vw, 8.5px)',
   borderRadius: '9px',
   border: `0.5px solid ${colors.muted}`,
   color: colors.muted,
@@ -109,9 +108,9 @@ export const style_home_tag = {
 export const style_contact_btn = {
   display: 'flex',
   alignItems: 'center',
-  padding: '11px 16px',
+  padding: 'clamp(8px, 1vw, 11px) clamp(12px, 1.2vw, 16px)',
   borderRadius: '9px',
-  fontSize: '17px',
+  fontSize: 'clamp(13px, 1.5vw, 17px)',
   cursor: 'pointer',
   transition: 'all 0.18s',
   border: `0.5px solid ${colors.muted}`,
@@ -140,7 +139,7 @@ export const style_nav = {
 };
 
 export const style_nav_logo = {
-  fontSize: 'clamp(8px, 2.2vw, 32px)',
+  fontSize: 'clamp(16px, 2.2vw, 32px)',
   color: colors.text,
   letterSpacing: '1px',
   textTransform: 'uppercase',
@@ -258,7 +257,7 @@ export const style_proj_desc = {
 // CAREER
 export const style_career_label = {
   fontFamily: fonts.mono,
-  fontSize: '16px',
+  fontSize: 'clamp(14px, 1.8vw, 18px)',
   color: colors.accent,
   letterSpacing: '2px',
   textTransform: 'uppercase',
@@ -274,7 +273,7 @@ export const style_career_item = {
 
 export const style_career_year = {
   fontFamily: fonts.mono,
-  fontSize: '14px',
+  fontSize: 'clamp(12px, 1.4vw, 15px)',
   color: colors.muted,
   minWidth: '110px',
   paddingTop: '2px',
@@ -282,13 +281,13 @@ export const style_career_year = {
 };
 
 export const style_career_role = {
-  fontSize: '18px',
+  fontSize: 'clamp(16px, 2vw, 22px)',
   color: colors.text,
   marginBottom: '3px',
 };
 
 export const style_career_place = {
-  fontSize: '15px',
+  fontSize: 'clamp(13px, 1.5vw, 17px)',
   color: colors.muted,
   fontFamily: fonts.mono,
   fontWeight: '400',
@@ -312,8 +311,8 @@ export const style_skill_group_title = {
 
 export const style_chip = {
   fontFamily: fonts.mono,
-  fontSize: '13px',
-  padding: '5px 10px',
+  fontSize: 'clamp(11px, 1.3vw, 14px)',
+  padding: 'clamp(4px, 0.5vw, 6px) clamp(8px, 0.8vw, 12px)',
   borderRadius: '4px',
   background: 'rgba(0,0,0,0.12)',
   color: colors.muted,
@@ -325,12 +324,12 @@ export const style_cert_item = {
   background: colors.surface,
   border: `0.5px solid ${colors.border}`,
   borderRadius: '12px',
-  padding: '12px 14px',
+  padding: 'clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px)',
 };
 
 // ABOUT
 export const style_about_text = {
-  fontSize: '17px',
+  fontSize: 'clamp(14px, 1.6vw, 19px)',
   color: colors.muted,
   lineHeight: '1.8',
 };

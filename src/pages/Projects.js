@@ -40,7 +40,7 @@ const projectData = [
 ];
 
 const langFilters = ['All', 'Python', 'C++', 'MATLAB', 'JavaScript'];
-const yearFilters = ['All Years', '2023', '2024', '2025'];
+const yearFilters = ['All Years', '2023', '2024', '2025', '2026'];
 
 function Projects() {
   const [activeLang, setActiveLang] = useState('All');

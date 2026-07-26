@@ -26,7 +26,7 @@ const langColors = {
 
 const projectData = [
   { title: 'Optimal Strategy in Shut The Box', lang: 'Python', year: 2026, desc: 'Dynamic programming · Monte Carlo simulation · Game Theory', path: '/papers/shutthebox', image: shuttheboximg},
-  { title: 'Introduction to Phonons', lang: 'Python', year: 2026, desc: 'Update Me', path: '/papers/phononintro', image: phononimg},
+  { title: 'Introduction to Phonons (In Progress)', lang: 'Python', year: 2026, desc: 'Update Me', path: '/papers/phononintro', image: phononimg},
 ];
 
 const langFilters = ['All', 'Python'];
@@ -69,7 +69,7 @@ function Papers() {
       <NavBar />
       <div style={style_section}>
         <div style={style_section_eyebrow}>Work</div>
-        <div style={style_section_title}>PAPERS (In Progress)</div>
+        <div style={style_section_title}>PAPERS </div>
 
         <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
           {langFilters.map((f) => (
