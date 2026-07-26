@@ -41,7 +41,7 @@ function NavBar() {
   return (
     <>
       <nav style={{ ...style_nav, flexDirection: 'column', height: 'auto', padding: '0' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 28px', height: '64px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 clamp(8px, 3vw, 48px)', height: '64px' }}>
           <div style={style_nav_logo}>LUCAS HOSKIN</div>
 
           {!isMobile && (
@@ -64,7 +64,7 @@ function NavBar() {
           )}
         </div>
 
-        <div style={{ width: '100%', borderTop: `0.5px solid ${colors.border}`, padding: '6px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.06)' }}>
+        <div style={{ width: '100%', borderTop: `0.5px solid ${colors.border}`, padding: '6px clamp(8px, 3vw, 48px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.06)' }}>
           <span style={timeStyle}>{formattedDate}</span>
           <span style={timeStyle}>{formattedTime}</span>
         </div>

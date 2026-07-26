@@ -78,7 +78,6 @@ function Projects() {
     <div style={style_page_bg}>
       <NavBar />
       <div style={style_section}>
-        <div style={style_section_eyebrow}>Work</div>
         <div style={style_section_title}>PROJECTS</div>
 
         <div style={{ display: 'flex', gap: 'clamp(4px, 0.6vw, 8px)', marginBottom: '10px', flexWrap: 'wrap' }}>

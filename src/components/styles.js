@@ -24,20 +24,20 @@ export const style_page_bg = {
 };
 
 export const style_section = {
-  padding: 'clamp(24px, 4vw, 48px) clamp(8px, 3vw, 48px)',
+  padding: 'clamp(8px, 4vw, 28px) clamp(8px, 3vw, 48px)',
 };
 
-export const style_section_eyebrow = {
-  fontFamily: fonts.mono,
-  fontSize: 'clamp(12px, 1.4vw, 16px)',
-  color: colors.accent,
-  letterSpacing: '2.5px',
-  textTransform: 'uppercase',
-  marginBottom: '10px',
-};
+// export const style_section_eyebrow = {
+//   fontFamily: fonts.mono,
+//   fontSize: 'clamp(12px, 1.4vw, 16px)',
+//   color: colors.accent,
+//   letterSpacing: '2.5px',
+//   textTransform: 'uppercase',
+//   marginBottom: '10px',
+// };
 
 export const style_section_title = {
-  fontSize: 'clamp(22px, 4vw, 40px)',
+  fontSize: 'clamp(18px, 3vw, 36px)',
   color: colors.text,
   marginBottom: '24px',
   textTransform: 'uppercase',
