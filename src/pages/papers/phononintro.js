@@ -579,13 +579,14 @@ function PhononIntro() {
               label the allowed states. They're indices that tell you which state you're in.
             </p>
           </div>
-          {/* animation slot */}
+        
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 11  Particle in a Box
            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <div style={card}>
+        {/*
+          <div style={card}>
           <div style={metaEyebrow}>§ 11 — Particle in a Box</div>
           <div style={body}>
             <p style={p}>
@@ -627,12 +628,12 @@ function PhononIntro() {
               The harmonic oscillator is more useful for phonons though — that's next.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 12  The Quantum Harmonic Oscillator
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 12 — The Quantum Harmonic Oscillator</div>
           <div style={body}>
@@ -673,12 +674,12 @@ function PhononIntro() {
               the follow-up paper.
             </p>
           </div>
-          {/* animation slot */}
+       
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 13  Spin
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 13 — Spin</div>
           <div style={body}>
@@ -715,12 +716,12 @@ function PhononIntro() {
               classification of all particles — and that directly affects how phonons behave.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 14  Fermions & Bosons
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 14 — Fermions &amp; Bosons</div>
           <div style={body}>
@@ -759,12 +760,12 @@ function PhononIntro() {
               why phonons can pile up at low energies.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 15  Pauli Exclusion Principle
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 15 — Pauli Exclusion Principle</div>
           <div style={body}>
@@ -794,12 +795,12 @@ function PhononIntro() {
               mechanics.
             </p>
           </div>
-          {/* animation slot */}
+         
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 16  Creation & Annihilation Operators
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 16 — Creation &amp; Annihilation Operators</div>
           <div style={body}>
@@ -841,12 +842,12 @@ function PhononIntro() {
               <Eq tex="\hat{a}^\dagger" /> and <Eq tex="\hat{a}" />.
             </p>
           </div>
-          {/* animation slot */}
+        
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 17  Two Coupled Oscillators
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 17 — Two Coupled Oscillators</div>
           <div style={body}>
@@ -889,12 +890,12 @@ function PhononIntro() {
               That correlation... is entanglement. But we'll get to that.
             </p>
           </div>
-          {/* animation slot */}
+      
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 18  N Coupled Oscillators & Normal Modes
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 18 — N Coupled Oscillators &amp; Normal Modes</div>
           <div style={body}>
@@ -923,12 +924,12 @@ function PhononIntro() {
               entanglement.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 19  Phonons
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 19 — Phonons: Quantized Lattice Vibrations</div>
           <div style={body}>
@@ -968,12 +969,12 @@ function PhononIntro() {
               Zero-point vibrations, even at absolute zero.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 20  Bose-Einstein Statistics
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 20 — Bose-Einstein Statistics</div>
           <div style={body}>
@@ -1009,12 +1010,12 @@ function PhononIntro() {
               Same quantum mechanics, different statistics because of spin.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 21  Entanglement
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 21 — Entanglement</div>
           <div style={body}>
@@ -1047,12 +1048,12 @@ function PhononIntro() {
               <Eq tex="\Delta x \cdot \Delta p" /> grow beyond <Eq tex="\hbar/2" /> locally.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 22  Density Matrices & Tracing Out
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 22 — Density Matrices &amp; Tracing Out</div>
           <div style={body}>
@@ -1094,12 +1095,12 @@ function PhononIntro() {
               literally how entanglement inflates local uncertainty.
             </p>
           </div>
-          {/* animation slot */}
+       
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 23  Entanglement Entropy
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         <div style={card}>
           <div style={metaEyebrow}>§ 23 — Entanglement Entropy</div>
           <div style={body}>
@@ -1129,13 +1130,13 @@ function PhononIntro() {
               minimum. The follow-up paper shows these are directly related.
             </p>
           </div>
-          {/* animation slot */}
+          
         </div>
 
-        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            § 24  Putting It All Together
-           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <div style={card}>
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        {/* <div style={card}>
           <div style={metaEyebrow}>§ 24 — Putting It All Together</div>
           <div style={body}>
             <p style={p}>
@@ -1162,8 +1163,8 @@ function PhononIntro() {
               foundation right here.
             </p>
           </div>
-        </div>
-
+        </div> */}
+        IN PROGRESS
         <div style={{ height: "80px" }} />
       </div>
     </div>

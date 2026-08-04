@@ -232,8 +232,15 @@ function Career() {
                   <span style={{ fontFamily: fonts.mono, fontSize: sz.certArr, color: colors.accent, marginLeft: '12px' }}>{openCert === i ? '▲' : '▼'}</span>
                 </div>
                 {openCert === i && (
-                  <iframe src={c.file} title={c.name}
-                    style={{ width: '100%', height: isMobile ? '300px' : '500px', border: 'none', borderRadius: '12px', marginTop: '8px' }} />
+                  isMobile ? (
+                    <a href={c.file} target="_blank" rel="noopener noreferrer"
+                      style={{ display: 'block', marginTop: '8px', padding: '10px 12px', borderRadius: '12px', textAlign: 'center', fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, border: `0.5px solid ${colors.border}`, textDecoration: 'none' }}>
+                      Open certificate PDF ↗
+                    </a>
+                  ) : (
+                    <iframe src={`${c.file}#view=FitH`} title={c.name}
+                      style={{ width: '100%', height: '500px', border: 'none', borderRadius: '12px', marginTop: '8px' }} />
+                  )
                 )}
               </div>
             ))}
