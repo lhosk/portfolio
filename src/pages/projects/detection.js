@@ -14,6 +14,10 @@ function Detection() {
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · PyTorch · YOLOv8 · Faster R-CNN · Computer Vision · Real-Time Inference</div>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/object-detection/blob/main/object_detection.ipynb" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
           <div style={{ fontSize: '16px', color: colors.muted, lineHeight: '1.8' }}>
             <p style={{ marginBottom: '12px' }}>A real-time object detection pipeline using YOLOv8 and Faster R-CNN for live video stream analysis, object localization, and multi-class recognition.</p>
@@ -23,10 +27,6 @@ function Detection() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Demo</div>
           <video src={detection1} controls style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/object-detection/blob/main/object_detection.ipynb" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ height: '80px' }} />
       </div>

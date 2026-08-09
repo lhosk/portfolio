@@ -4,6 +4,7 @@ import { style_page_bg, style_section, style_section_title, style_cert_item, col
 import vrd1 from "../../assets/images/vrd1.png";
 
 function Vrd() {
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '350px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -12,6 +13,13 @@ function Vrd() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Stack</div>
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · LightTools · Fusion 360 · Optical Simulation · Laser Intensity Modeling · CIE Color Mapping</div>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px'  }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <a href="https://github.com/lhosk/Virtual-Retinal-Display" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
+            <a href="https://drive.google.com/file/d/1BuR9d79Ee25qUjlR7Gobtb5KOs4Y-sKy/view?usp=sharing" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View Presentation ↗</a>
+          </div>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
@@ -23,14 +31,7 @@ function Vrd() {
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Diagram</div>
-          <img src={vrd1} alt="VRD Diagram" style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <a href="https://github.com/lhosk/Virtual-Retinal-Display" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
-            <a href="https://drive.google.com/file/d/1BuR9d79Ee25qUjlR7Gobtb5KOs4Y-sKy/view?usp=sharing" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View Presentation ↗</a>
-          </div>
+          <img src={vrd1} alt="VRD Diagram" style={imgStyle} />
         </div>
         <div style={{ height: '80px' }} />
       </div>

@@ -15,6 +15,10 @@ function Rl() {
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · Stable-Baselines3 · A2C · Atari Learning Environment · Reinforcement Learning · Policy Gradients</div>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/Intro-To-AI/tree/main/Reinforcement-Learning" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
           <div style={{ fontSize: '16px', color: colors.muted, lineHeight: '1.8' }}>
             <p style={{ marginBottom: '12px' }}>RL agents trained on classic Atari games using the Advantage Actor-Critic algorithm from Stable-Baselines3. My first step into reinforcement learning and policy-based optimization.</p>
@@ -27,10 +31,6 @@ function Rl() {
             <video src={rl1} controls style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
             <video src={rl2} controls style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
           </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/Intro-To-AI/tree/main/Reinforcement-Learning" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ height: '80px' }} />
       </div>

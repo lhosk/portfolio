@@ -4,6 +4,7 @@ import { style_page_bg, style_section, style_section_title, style_cert_item, col
 import mcsImage from "../../assets/images/mcs.png";
 
 function Mcs() {
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '500px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -23,7 +24,7 @@ function Mcs() {
         </div>
         <div style={{ ...style_cert_item, padding: '28px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Output</div>
-          <img src={mcsImage} alt="Monte Carlo Simulation Output" style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
+          <img src={mcsImage} alt="Monte Carlo Simulation Output" style={imgStyle} />
         </div>
         <div style={{ height: '80px' }} />
       </div>

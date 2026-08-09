@@ -4,6 +4,7 @@ import { style_page_bg, style_section, style_section_title, style_cert_item, col
 import rlgl from "../../assets/images/rlgl.png";
 
 function Rlgl() {
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '300px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -14,6 +15,10 @@ function Rlgl() {
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Arduino · C++ · Embedded Systems · Game Logic · Hardware Interfacing · Sensor Input · Sound Control</div>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/Physical-Computing/blob/main/code_red_light_green_light.ino" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
           <div style={{ fontSize: '16px', color: colors.muted, lineHeight: '1.8' }}>
             <p style={{ marginBottom: '12px' }}>Recreates the classic Red Light Green Light game using an Arduino-based embedded system. Built for Physical Computing, focused on user interaction, timing control, and feedback through LEDs and sound.</p>
@@ -22,11 +27,7 @@ function Rlgl() {
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Photo</div>
-          <img src={rlgl} alt="Red Light Green Light Setup" style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/Physical-Computing/blob/main/code_red_light_green_light.ino" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
+          <img src={rlgl} alt="Red Light Green Light Setup" style={imgStyle} />
         </div>
         <div style={{ height: '80px' }} />
       </div>

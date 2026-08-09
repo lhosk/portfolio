@@ -7,7 +7,8 @@ import srgan3 from "../../assets/images/srgan3.png";
 import srgan4 from "../../assets/images/srgan4.png";
 
 function Srgan() {
-  const imgStyle = { width: '100%', maxWidth: '700px', borderRadius: '12px' };
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '300px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
+  const labelStyle = { fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px', textAlign: 'center' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -16,6 +17,10 @@ function Srgan() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Stack</div>
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · TensorFlow · GANs · SRGAN · CNN · Image Super-Resolution · Transfer Learning · Deep Learning</div>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/srgan/tree/main" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
@@ -46,15 +51,11 @@ function Srgan() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Outputs</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Model A accuracy</div><img src={srgan1} alt="Model A" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Model B accuracy</div><img src={srgan2} alt="Model B" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>SRGAN training loss over 150 epochs</div><img src={srgan3} alt="SRGAN loss" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Low-res input vs SRGAN output vs ground truth</div><img src={srgan4} alt="SRGAN comparison" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Model A accuracy</div><img src={srgan1} alt="Model A" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Model B accuracy</div><img src={srgan2} alt="Model B" style={imgStyle} /></div>
+            <div><div style={labelStyle}>SRGAN training loss over 150 epochs</div><img src={srgan3} alt="SRGAN loss" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Low-res input vs SRGAN output vs ground truth</div><img src={srgan4} alt="SRGAN comparison" style={imgStyle} /></div>
           </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/srgan/tree/main" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ height: '80px' }} />
       </div>

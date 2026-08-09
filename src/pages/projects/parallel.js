@@ -5,6 +5,7 @@ import parallel1 from "../../assets/images/parallel1.png";
 import parallel2 from "../../assets/images/parallel2.png";
 
 function Parallel() {
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '300px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -13,6 +14,10 @@ function Parallel() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Stack</div>
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>C++ · OpenMP · Pthreads · Parallel Computing · Numerical Integration · Performance Optimization · SLURM · HPC</div>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/Parallel-Computing" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
@@ -24,13 +29,9 @@ function Parallel() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Results</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <img src={parallel1} alt="OpenMP Performance" style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
-            <img src={parallel2} alt="Pthreads Performance" style={{ width: '100%', maxWidth: '700px', borderRadius: '12px', display: 'block', margin: '0 auto' }} />
+            <img src={parallel1} alt="OpenMP Performance" style={imgStyle} />
+            <img src={parallel2} alt="Pthreads Performance" style={imgStyle} />
           </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/Parallel-Computing" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ height: '80px' }} />
       </div>

@@ -9,7 +9,8 @@ import imgStochasticPeriod from "../../assets/images/stochastic_period.png";
 import imgStochasticWaveHeight from "../../assets/images/stochastic_waveheight.png";
 
 function Spinn() {
-  const imgStyle = { width: '100%', maxWidth: '700px', borderRadius: '12px' };
+  const imgStyle = { width: '100%', maxWidth: '700px', maxHeight: '300px', objectFit: 'contain', display: 'block', margin: '0 auto', borderRadius: '12px' };
+  const labelStyle = { fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px', textAlign: 'center' };
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -18,6 +19,10 @@ function Spinn() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Stack</div>
           <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · PyTorch · PINNs · RNNs · Stochastic Modeling · Ocean Wave Physics · Time-Series Forecasting · AWS SageMaker</div>
+        </div>
+        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
+          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
+          <a href="https://github.com/lhosk/stochastic-pinn" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Overview</div>
@@ -29,17 +34,13 @@ function Spinn() {
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Results</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>10 year data — 6 features</div><img src={img6} alt="6 features" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>10 year data — 14 features</div><img src={img14} alt="14 features" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Days vs Years models</div><img src={imgComparing} alt="Comparing" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>PINN vs Baseline RNN vs True Data</div><img src={imgPinn} alt="PINN results" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Stochastic model — wave period prediction</div><img src={imgStochasticPeriod} alt="Wave period" style={imgStyle} /></div>
-            <div><div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px' }}>Stochastic model — wave height prediction</div><img src={imgStochasticWaveHeight} alt="Wave height" style={imgStyle} /></div>
+            <div><div style={labelStyle}>10 year data — 6 features</div><img src={img6} alt="6 features" style={imgStyle} /></div>
+            <div><div style={labelStyle}>10 year data — 14 features</div><img src={img14} alt="14 features" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Days vs Years models</div><img src={imgComparing} alt="Comparing" style={imgStyle} /></div>
+            <div><div style={labelStyle}>PINN vs Baseline RNN vs True Data</div><img src={imgPinn} alt="PINN results" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Stochastic model — wave period prediction</div><img src={imgStochasticPeriod} alt="Wave period" style={imgStyle} /></div>
+            <div><div style={labelStyle}>Stochastic model — wave height prediction</div><img src={imgStochasticWaveHeight} alt="Wave height" style={imgStyle} /></div>
           </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Links</div>
-          <a href="https://github.com/lhosk/stochastic-pinn" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
         </div>
         <div style={{ height: '80px' }} />
       </div>
