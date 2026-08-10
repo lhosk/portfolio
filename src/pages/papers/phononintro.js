@@ -60,7 +60,7 @@ function PhononIntro() {
         <div style={card}>
           <div style={metaEyebrow}>Stack</div>
           <div style={{ fontFamily: fonts.mono, fontSize: "13px", color: colors.muted }}>
-            Python · NumPy · Quantum Mechanics · Linear Algebra · Statistical Mechanics
+            JavaScript · Quantum Mechanics · Phonons · Linear Algebra · Statistical Mechanics
           </div>
         </div>
 

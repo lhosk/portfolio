@@ -63,8 +63,9 @@ function Projects() {
   const langBtnStyle = (f) => {
     const isActive = activeLang === f;
     const isAvailable = f === 'All' || availableLangs.has(f);
+    const lc = langColors[f];
     if (isActive) return style_filter_btn_active;
-    return { ...style_filter_btn, opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)', pointerEvents: isAvailable ? 'auto' : 'none' };
+    return { ...style_filter_btn, ...(lc && { color: lc.label }), opacity: isAvailable ? 1 : 0.3, filter: isAvailable ? 'none' : 'blur(1px)', pointerEvents: isAvailable ? 'auto' : 'none' };
   };
 
   const yearBtnStyle = (y) => {

@@ -23,13 +23,15 @@ function NavBar() {
 
   const links = [
     { label: 'HOME', path: '/' },
-    { label: 'PROJECTS', path: '/projects' },
-    { label: 'PAPERS', path: '/papers' },
-    { label: 'CAREER', path: '/career' },
     { label: 'ABOUT', path: '/about' },
-    // { label: 'PHOTOS', path: '/photos' },
-    // { label: 'COMPANY', path: '/company' },
-    // { label: 'SOCCER', path: '/soccer' },
+    { label: 'CAREER', path: '/career' },
+    { label: 'PAPERS', path: '/papers' },
+    { label: 'PHOTOS', path: '/photos' },
+    { label: 'PROJECTS', path: '/projects' },
+    // { label: 'COMPANY', path: '/company' }, // Ruckus En/Surf
+    // { label: 'SOCCER DATA', path: '/soccer' },
+    // { label: 'HEALTH', path: '/health' },
+    // { label: 'ROCKCLIMBING', path: '/rockclimbing' },
   ];
 
   const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });

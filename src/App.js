@@ -5,6 +5,7 @@ import Career from './pages/Career';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Papers from './pages/Papers';
+import Photos from './pages/Photos';
 // Project Pages
 import Cnn from './pages/projects/cnn';
 import Connect4 from './pages/projects/connect4';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/papers" element={<Papers />} />
+        <Route path="/photos" element={<Photos />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
         <Route path="/papers/shutthebox" element={<ShutTheBox/>} />

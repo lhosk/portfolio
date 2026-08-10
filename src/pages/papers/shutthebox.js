@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar";
 import shuthteboxpdf from "../../assets/papers/shutthebox.pdf"
 import { style_page_bg, style_section, style_section_title, style_cert_item, colors, fonts } from "../../components/styles";
 
 function ShutTheBox() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
   return (
     <div style={style_page_bg}>
       <NavBar />
@@ -26,17 +34,18 @@ function ShutTheBox() {
         </div>
         <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
           <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Paper</div>
-          <iframe
-            src={shuthteboxpdf}
-            title="Optimal Strategy in Shut The Box"
-            style={{
-              width: '100%',
-              height: '800px',
-              border: 'none',
-              borderRadius: '8px',
-              background: '#fff',
-            }}
-          />
+          {isMobile ? (
+            <a href={shuthteboxpdf} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'block', padding: '10px 12px', borderRadius: '12px', textAlign: 'center', fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, border: `0.5px solid ${colors.border}`, textDecoration: 'none' }}>
+              Open paper PDF ↗
+            </a>
+          ) : (
+            <iframe
+              src={shuthteboxpdf}
+              title="Optimal Strategy in Shut The Box"
+              style={{ width: '100%', height: '800px', border: 'none', borderRadius: '8px', background: '#fff'}}
+            />
+          )}
         </div>
         <div style={{ height: '80px' }} />
       </div>

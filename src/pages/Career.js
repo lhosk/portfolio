@@ -137,7 +137,7 @@ function Career() {
     skillT:  isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
     certN:   isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
     certM:   isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
-    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 12px)',
+    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 18px)',
     cwLi:    isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
   };
 
