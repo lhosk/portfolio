@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.54e214fb.css",
-    "main.js": "/portfolio/static/js/main.297436dc.js",
+    "main.js": "/portfolio/static/js/main.daecdfd3.js",
     "static/media/detection1.mp4": "/portfolio/static/media/detection1.468f810b41b3063034f7.mp4",
     "static/media/rl1.mp4": "/portfolio/static/media/rl1.73862e9d202219e92638.mp4",
     "static/media/shutthebox.png": "/portfolio/static/media/shutthebox.143fc0d3b89366fc4844.png",
@@ -13,8 +13,10 @@
     "static/media/srgan4.png": "/portfolio/static/media/srgan4.59595a33d8a79e086b60.png",
     "static/media/parallel2.png": "/portfolio/static/media/parallel2.ea2f92604c4a39b3d725.png",
     "static/media/parallel1.png": "/portfolio/static/media/parallel1.b64cba2dd1a1eb7948c7.png",
+    "static/media/touch_heatmap_dual.png": "/portfolio/static/media/touch_heatmap_dual.c5dca3749d9fe5e710a9.png",
     "static/media/rlgl.png": "/portfolio/static/media/rlgl.f2878ccaa781f79d0751.png",
     "static/media/srgan3.png": "/portfolio/static/media/srgan3.2c12eac8081e48d3e345.png",
+    "static/media/team_b_touch_all.png": "/portfolio/static/media/team_b_touch_all.3f08c5eb7139d1b32372.png",
     "static/media/vrd1.png": "/portfolio/static/media/vrd1.db84d1d390b5541b8650.png",
     "static/media/cert4.pdf": "/portfolio/static/media/cert4.e55f0e39f16c83bd0b7f.pdf",
     "static/media/mcsapf.png": "/portfolio/static/media/mcsapf.10cb905e1cd826e82db1.png",
@@ -23,8 +25,12 @@
     "static/media/mcs.png": "/portfolio/static/media/mcs.d7095d9b54f2e8a0e2e4.png",
     "static/media/stochastic_waveheight.png": "/portfolio/static/media/stochastic_waveheight.21f4021a314154a42e46.png",
     "static/media/comparing.png": "/portfolio/static/media/comparing.a633e646a42558f1fda8.png",
+    "static/media/discipline.png": "/portfolio/static/media/discipline.fbc1a5a4e9a02e0fdadf.png",
+    "static/media/shot_maps.png": "/portfolio/static/media/shot_maps.376164c853e25d795ee2.png",
     "static/media/stochastic_period.png": "/portfolio/static/media/stochastic_period.68997f922ad62f7d039e.png",
     "static/media/KaTeX_AMS-Regular.ttf": "/portfolio/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
+    "static/media/shot_maps_vs_all.png": "/portfolio/static/media/shot_maps_vs_all.2de56134dd67424b95ce.png",
+    "static/media/ball_winners.png": "/portfolio/static/media/ball_winners.0938d1a8897476a1dd3c.png",
     "static/media/KaTeX_Main-Regular.ttf": "/portfolio/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
     "static/media/KaTeX_Main-Bold.ttf": "/portfolio/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf",
     "static/media/14.png": "/portfolio/static/media/14.99d89d6660fe4de0055a.png",
@@ -92,10 +98,10 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/portfolio/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/portfolio/index.html",
     "main.54e214fb.css.map": "/portfolio/static/css/main.54e214fb.css.map",
-    "main.297436dc.js.map": "/portfolio/static/js/main.297436dc.js.map"
+    "main.daecdfd3.js.map": "/portfolio/static/js/main.daecdfd3.js.map"
   },
   "entrypoints": [
     "static/css/main.54e214fb.css",
-    "static/js/main.297436dc.js"
+    "static/js/main.daecdfd3.js"
   ]
 }
