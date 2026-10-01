@@ -23,6 +23,7 @@ const langColors = {
 };
 
 const projectData = [
+  { title: 'World Cup 2026 Soccer Data', lang: 'Python', year: 2026, desc: 'Pandas · SQLite · mplsoccer · Opta + SofaScore event data · Data visualization', path: '/projects/soccerdata' },
   { title: 'Stochastic Physics Informed Neural Network (SPINN)', lang: 'Python', year: 2025, desc: 'PyTorch · PINNs · RNNs · Ocean wave forecasting · AWS SageMaker', path: '/projects/spinn' },
   { title: 'Super Resolution GAN', lang: 'Python', year: 2025, desc: 'TensorFlow · SRGAN · CNN image super-resolution · Transfer learning', path: '/projects/srgan' },
   { title: 'Real-Time Object Detection', lang: 'Python', year: 2025, desc: 'PyTorch · YOLOv8 · Faster R-CNN · Computer vision', path: '/projects/detection' },
@@ -103,7 +104,7 @@ function Projects() {
             const matched = isMatch(p);
             return (
               <Link key={i} to={p.path} style={{ textDecoration: 'none', display: matched ? 'block' : 'none' }}>
-                <div style={{ ...style_proj_card, position: 'relative', cursor: 'pointer' }}>
+                <div className="hover-lift" style={{ ...style_proj_card, position: 'relative', cursor: 'pointer' }}>
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 'clamp(4px, 0.5vw, 6px)', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'clamp(4px, 0.6vw, 8px)' }}>
                     <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 'clamp(10px, 1.1vw, 13px)', color: lc.label, letterSpacing: '1px' }}>

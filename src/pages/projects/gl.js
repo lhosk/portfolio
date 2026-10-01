@@ -23,7 +23,7 @@ function Gl() {
         <div style={style_proj_grid}>
           {glProjects.map((p, i) => (
             <Link key={i} to={p.path} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-              <div style={{ ...style_proj_card, position: 'relative', cursor: 'pointer', height: '100%' }}>
+              <div className="hover-lift" style={{ ...style_proj_card, position: 'relative', cursor: 'pointer', height: '100%' }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: 'rgba(201,169,0,0.53)', borderRadius: '12px 12px 0 0' }} />
                 <div style={{ fontFamily: fonts.mono, fontSize: '11px', color: '#7a6600', marginBottom: '8px', letterSpacing: '1px' }}>JAVASCRIPT</div>
                 <div style={style_proj_title}>{p.title}</div>

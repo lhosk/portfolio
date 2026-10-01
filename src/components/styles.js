@@ -1,7 +1,8 @@
 // styles.js — shared styles for all pages
 
 export const colors = {
-  bg: '#999798',
+  bg: '#bfb8ae',
+  navBg: 'rgba(191,184,174,0.85)',
   accent: '#d14200',
   text: '#1a1a1a',
   muted: '#3a3838',
@@ -64,7 +65,8 @@ export const style_home_eyebrow = {
 };
 
 export const style_home_name = {
-  fontSize: 'clamp(42px, 6vw, 72px)',
+  fontSize: 'clamp(30px, 10.5cqw, 72px)',
+  whiteSpace: 'nowrap',
   lineHeight: '1.05',
   color: colors.text,
   marginBottom: '16px',
@@ -123,6 +125,32 @@ export const style_contact_btn = {
   letterSpacing: '1px',
 };
 
+export const style_home_card = {
+  display: 'block',
+  textDecoration: 'none',
+  background: colors.surface,
+  border: `0.5px solid ${colors.border}`,
+  borderRadius: '12px',
+  padding: 'clamp(12px, 1.4vw, 16px)',
+  color: colors.text,
+};
+
+export const style_home_card_title = {
+  fontSize: 'clamp(15px, 1.6vw, 19px)',
+  color: colors.text,
+  textTransform: 'uppercase',
+  letterSpacing: '1px',
+  marginBottom: '4px',
+};
+
+export const style_home_card_desc = {
+  fontFamily: fonts.mono,
+  fontSize: 'clamp(11px, 1.1vw, 13px)',
+  color: colors.muted,
+  fontWeight: '400',
+  lineHeight: '1.5',
+};
+
 // NAVBAR
 export const style_nav = {
   display: 'flex',
@@ -131,7 +159,7 @@ export const style_nav = {
   padding: '0 28px',
   height: '64px',
   borderBottom: `0.5px solid ${colors.border}`,
-  background: 'rgba(153,151,152,0.85)',
+  background: colors.navBg,
   backdropFilter: 'blur(10px)',
   position: 'sticky',
   top: 0,

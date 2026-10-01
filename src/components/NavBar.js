@@ -19,7 +19,10 @@ function NavBar() {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
-  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setMenuOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const links = [
     { label: 'HOME', path: '/' },
@@ -33,6 +36,13 @@ function NavBar() {
     // { label: 'HEALTH', path: '/health' },
     // { label: 'ROCKCLIMBING', path: '/rockclimbing' },
   ];
+
+  const isActive = (path) => location.pathname === path || (path !== '/' && location.pathname.startsWith(path + '/'));
+
+  // Back link for nested pages, e.g. /projects/gl/volcano -> /projects/gl
+  const segments = location.pathname.split('/').filter(Boolean);
+  const parentPath = segments.length > 1 ? '/' + segments.slice(0, -1).join('/') : null;
+  const parentLabel = parentPath === '/projects/gl' ? 'WEBGL' : segments[0]?.toUpperCase();
 
   const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const formattedDate = time.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
@@ -49,7 +59,7 @@ function NavBar() {
           {!isMobile && (
             <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
               {links.map((link) => (
-                <Link key={link.path} to={link.path} style={location.pathname === link.path ? style_nav_link_active : style_nav_link}>
+                <Link key={link.path} to={link.path} style={isActive(link.path) ? style_nav_link_active : style_nav_link}>
                   {link.label}
                 </Link>
               ))}
@@ -68,6 +78,11 @@ function NavBar() {
 
         <div style={{ width: '100%', borderTop: `0.5px solid ${colors.border}`, padding: '6px clamp(8px, 3vw, 48px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.06)' }}>
           <span style={timeStyle}>{formattedDate}</span>
+          {parentPath && (
+            <Link to={parentPath} style={{ ...timeStyle, color: colors.accent, textDecoration: 'none', fontWeight: '500' }}>
+              ← {parentLabel}
+            </Link>
+          )}
           <span style={timeStyle}>{formattedTime}</span>
         </div>
       </nav>
@@ -83,8 +98,8 @@ function NavBar() {
               style={{
                 textDecoration: 'none', fontFamily: fonts.serif, fontWeight: 'bold', fontSize: '22px',
                 letterSpacing: '2px', textTransform: 'uppercase', padding: '12px 24px', borderRadius: '8px',
-                color: location.pathname === link.path ? '#fff' : colors.muted,
-                background: location.pathname === link.path ? colors.accent : 'transparent',
+                color: isActive(link.path) ? '#fff' : colors.muted,
+                background: isActive(link.path) ? colors.accent : 'transparent',
               }}>
               {link.label}
             </Link>

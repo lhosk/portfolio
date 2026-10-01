@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Lucas Hoskin: applied physics and CS grad student at UNC Charlotte. Projects in scientific computing, data science, machine learning and simulation." />
+    <meta name="theme-color" content="#bfb8ae" />
+    <meta property="og:title" content="Lucas Hoskin" />
+    <meta property="og:description" content="Projects in scientific computing, data science, machine learning and simulation." />
+    <meta property="og:url" content="https://lhosk.github.io/portfolio" />
+    <meta property="og:type" content="website" />
     <script>
       (function(l) {
         if (l.search[1] === '/' ) {
@@ -27,7 +33,18 @@
     <title>Lucas Hoskin</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { background: #999798; }
+      body { background: #bfb8ae; }
+      @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+      .fade-up { animation: fade-up 0.6s ease both; }
+      .hover-lift { transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
+      .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); border-color: #d14200 !important; }
+      .hover-accent { transition: all 0.18s; }
+      .hover-accent:hover { background: #d14200 !important; color: #fff !important; border-color: #d14200 !important; }
+      @media (prefers-reduced-motion: reduce) {
+        .fade-up { animation: none; }
+        .hover-lift, .hover-accent { transition: none; }
+        .hover-lift:hover { transform: none; }
+      }
     </style>
   </head>
   <body>

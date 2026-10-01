@@ -17,6 +17,7 @@ import Parallel from './pages/projects/parallel';
 import Recommendation from './pages/projects/recommendation';
 import Rl from './pages/projects/rl';
 import Rlgl from './pages/projects/rlgl';
+import SoccerData from './pages/projects/soccerdata';
 import Spinn from './pages/projects/spinn';
 import Srgan from './pages/projects/srgan';
 import Vrd from './pages/projects/vrd';
@@ -55,6 +56,7 @@ function App() {
         <Route path="/projects/recommendation" element={<Recommendation />} />
         <Route path="/projects/rl" element={<Rl />} />
         <Route path="/projects/rlgl" element={<Rlgl />} />
+        <Route path="/projects/soccerdata" element={<SoccerData />} />
         <Route path="/projects/spinn" element={<Spinn />} />
         <Route path="/projects/srgan" element={<Srgan />} />
         <Route path="/projects/vrd" element={<Vrd />} />
