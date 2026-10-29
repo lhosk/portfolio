@@ -15,6 +15,14 @@ const FULL_W  = 2000;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+// "Canon" + "Canon EOS Rebel T7" -> "Canon EOS Rebel T7" (most models already include the make)
+const cameraName = (make, model) => {
+  make = (make || '').trim();
+  model = (model || '').trim();
+  if (make && model.toLowerCase().startsWith(make.toLowerCase())) return model;
+  return [make, model].filter(Boolean).join(' ') || 'Unknown';
+};
+
 // natural sort: 0, 1, 2, ... 10, 11 instead of 0, 1, 10, 11, 2
 const natural = (a, b) => a.localeCompare(b, undefined, { numeric: true });
 
@@ -98,7 +106,7 @@ function applyPrecision(entry, place) {
 
     byFile.set(outName, {
       file: outName,
-      camera: [ex.Make, ex.Model].filter(Boolean).join(' ').trim() || 'Unknown',
+      camera: cameraName(ex.Make, ex.Model),
       iso: ex.ISO ?? null,
       focal: ex.FocalLength ?? null,
       fstop: ex.FNumber ?? null,

@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import NavBar from '../components/NavBar';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  style_page_bg,
   style_section,
-  style_section_title,
-  style_career_label,
+  style_card,
+  style_eyebrow,
   style_career_item,
   style_career_year,
   style_career_role,
   style_career_place,
-  style_chip,
-  style_cert_item,
   colors,
   fonts,
+  fluid,
 } from '../components/styles';
+import { PageHeader, BulletList, Chips, Chevron } from '../components/DetailPage';
+import { useIsNarrow } from '../components/hooks';
 
 import cert1 from '../assets/certificates/cert1.pdf';
 import cert2 from '../assets/certificates/cert2.pdf';
@@ -104,82 +103,70 @@ const coursework = [
   },
 ];
 
-function Section({ label, children, defaultOpen = true }) {
+const cardGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '8px' };
+const sectionColumnGap = 'clamp(20px, 3vw, 40px)';
+const groupTitle = { fontSize: fluid(13, 14), color: colors.text, marginBottom: '7px' };
+const smallBtn = { fontFamily: fonts.mono, fontSize: '11px', fontWeight: 500, letterSpacing: '1px', color: colors.accentInk, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'none', padding: 0 };
+
+function Section({ label, children, defaultOpen = true, wide = false }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div style={{ marginBottom: '10px' }}>
-      <div onClick={() => setOpen(!open)}
-        style={{ ...style_career_label, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', userSelect: 'none' }}>
-        <span style={{ fontSize: 'clamp(18px, 1.5vw, 24px)', transition: 'transform 0.2s' }}>{open ? '▲' : '▼'}</span>
-        <span>{label}</span>
-      </div>
-      {open && children}
-    </div>
+    <section style={wide ? { gridColumn: '1 / -1' } : undefined}>
+      <button onClick={() => setOpen(!open)} aria-expanded={open}
+        style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%', padding: '4px 0', background: 'none', border: 'none', cursor: 'pointer', color: colors.accentInk, textAlign: 'left' }}>
+        <span style={style_eyebrow}>{label}</span>
+        <span style={{ flex: 1, height: '1px', background: colors.border }} />
+        <Chevron open={open} size={12} />
+      </button>
+      {open && <div style={{ marginTop: '4px', animation: 'fade-in 0.25s ease' }}>{children}</div>}
+    </section>
   );
 }
 
 function Career() {
-  const [examOpen, setExamOpen] = useState(window.innerWidth >= 768);
+  const isMobile = useIsNarrow(768);
+  const twoColumns = !useIsNarrow(1000);
+  const [examOpen, setExamOpen] = useState(!isMobile);
   const [openCert, setOpenCert] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const previewRef = useRef(null);
 
+  // the preview opens below the grid, so bring it on screen
   useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
-  }, []);
+    if (openCert != null) previewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, [openCert]);
 
-  const sz = {
-    sub:     isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
-    exam:    isMobile ? '10px' : 'clamp(11px, 1.2vw, 12px)',
-    examLi:  isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
-    bullet:  isMobile ? '10px' : 'clamp(12px, 1.4vw, 14px)',
-    skillT:  isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
-    certN:   isMobile ? '12px' : 'clamp(14px, 1.5vw, 16px)',
-    certM:   isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
-    certArr: isMobile ? '10px' : 'clamp(11px, 1.2vw, 18px)',
-    cwLi:    isMobile ? '10px' : 'clamp(12px, 1.3vw, 13px)',
-  };
+  const itemStyle = (i, list) => ({
+    ...style_career_item,
+    ...(isMobile && { gridTemplateColumns: '1fr', gap: '2px' }),
+    borderBottom: i < list.length - 1 ? `1px solid ${colors.border}` : 'none',
+  });
 
-  const itemStyle = isMobile
-    ? { ...style_career_item, flexDirection: 'column', gap: '4px' }
-    : style_career_item;
-
-  const yearStyle = isMobile
-    ? { ...style_career_year, fontSize: '10px', minWidth: 'auto', marginBottom: '2px' }
-    : { ...style_career_year, minWidth: '110px' };
+  const cert = openCert != null ? certificates[openCert] : null;
 
   return (
-    <div style={style_page_bg}>
-      <NavBar />
-      <div style={style_section}>
-        <div style={style_section_title}>CAREER</div>
+    <main style={style_section}>
+      <PageHeader title="Career" />
 
+      {/* wide screens: education | experience, skills | certificates, then coursework across both */}
+      <div style={{ display: 'grid', gridTemplateColumns: twoColumns ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)', gap: `clamp(12px, 1.6vw, 20px) ${sectionColumnGap}`, alignItems: 'start' }}>
         <Section label="Education">
           {education.map((e, i) => (
-            <div key={i} style={{ ...itemStyle, borderBottom: i < education.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-              <div style={yearStyle}>{e.years}</div>
-              <div style={{ flex: 1 }}>
+            <div key={e.role} style={itemStyle(i, education)}>
+              <div style={style_career_year}>{e.years}</div>
+              <div>
                 <div style={style_career_role}>{e.role}</div>
                 <div style={style_career_place}>{e.place}</div>
                 {e.sub && (
-                  <div style={{ fontFamily: fonts.mono, fontSize: sz.sub, color: colors.accent, fontWeight: '400', marginBottom: '4px' }}>{e.sub}</div>
+                  <div style={{ fontFamily: fonts.mono, fontSize: fluid(11, 12), fontWeight: 500, color: colors.accentInk }}>{e.sub}</div>
                 )}
                 {e.role === 'M.S. in Applied Physics' && (
                   <div>
-                    <div onClick={() => setExamOpen(!examOpen)}
-                      style={{ fontFamily: fonts.mono, fontSize: sz.exam, color: colors.muted, cursor: 'pointer', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ color: colors.accent, fontSize: '12px' }}>{examOpen ? '▲' : '▼'}</span> Comprehensive Exam Topics
-                    </div>
-                    {examOpen && (
-                      <ul style={{ listStyle: 'none', padding: 0, marginTop: '8px' }}>
-                        {examTopics.map((t, j) => (
-                          <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.examLi, color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '2px 0' }}>
-                            <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{t}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <button onClick={() => setExamOpen(!examOpen)} aria-expanded={examOpen}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontFamily: fonts.mono, fontSize: fluid(11, 12), fontWeight: 500, color: colors.text, background: 'none', border: 'none', cursor: 'pointer', padding: '1px 0' }}>
+                      <span style={{ color: colors.accentInk, display: 'flex' }}><Chevron open={examOpen} size={11} /></span>
+                      Comprehensive Exam Topics
+                    </button>
+                    {examOpen && <div style={{ marginTop: '4px' }}><BulletList items={examTopics} /></div>}
                   </div>
                 )}
               </div>
@@ -187,86 +174,85 @@ function Career() {
           ))}
         </Section>
 
-        <Section label="Experience" defaultOpen={!isMobile}>
+        <Section label="Experience">
           {experience.map((e, i) => (
-            <div key={i} style={{ ...itemStyle, borderBottom: i < experience.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-              <div style={yearStyle}>{e.years}</div>
-              <div style={{ flex: 1 }}>
+            <div key={e.role} style={itemStyle(i, experience)}>
+              <div style={style_career_year}>{e.years}</div>
+              <div>
                 <div style={style_career_role}>{e.role}</div>
                 <div style={style_career_place}>{e.place}</div>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {e.bullets.map((b, j) => (
-                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.bullet, color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '1px 0' }}>
-                      <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{b}
-                    </li>
-                  ))}
-                </ul>
+                <BulletList items={e.bullets} />
               </div>
             </div>
           ))}
         </Section>
 
         <Section label="Skills" defaultOpen={!isMobile}>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '6px' : '10px' }}>
-            {skills.map((s, i) => (
-              <div key={i} style={style_cert_item}>
-                <div style={{ fontSize: sz.skillT, color: colors.text, marginBottom: isMobile ? '5px' : '8px' }}>{s.title}</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '3px' : '5px' }}>
-                  {s.chips.map((c) => <span key={c} style={{ ...style_chip, ...(isMobile ? { fontSize: '9px', padding: '3px 6px' } : {}) }}>{c}</span>)}
-                </div>
+          <div style={cardGrid}>
+            {skills.map((s) => (
+              <div key={s.title} style={{ ...style_card, padding: '10px 12px' }}>
+                <div style={groupTitle}>{s.title}</div>
+                <Chips items={s.chips} />
               </div>
             ))}
           </div>
         </Section>
 
         <Section label="Certificates" defaultOpen={!isMobile}>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '8px' }}>
-            {certificates.map((c, i) => (
-              <div key={i}>
-                <div onClick={() => setOpenCert(openCert === i ? null : i)}
-                  style={{ ...style_cert_item, cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={cardGrid}>
+            {certificates.map((c, i) => {
+              const active = openCert === i;
+              const cardStyle = {
+                ...style_card, padding: '9px 12px', width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px',
+                textAlign: 'left', textDecoration: 'none', cursor: 'pointer', fontFamily: fonts.serif, fontWeight: 'bold',
+                ...(active && { border: `1px solid ${colors.accent}` }),
+              };
+              const inner = (
+                <>
                   <div>
-                    <div style={{ fontSize: sz.certN, color: colors.text, marginBottom: '3px' }}>{c.name}</div>
-                    <div style={{ fontFamily: fonts.mono, fontSize: sz.certM, color: colors.muted, fontWeight: '400' }}>{c.meta}</div>
+                    <div style={{ fontSize: fluid(13, 14), color: colors.text, marginBottom: '1px' }}>{c.name}</div>
+                    <div style={{ fontFamily: fonts.mono, fontSize: fluid(10.5, 11.5), fontWeight: 400, color: colors.faint }}>{c.meta}</div>
                   </div>
-                  <span style={{ fontFamily: fonts.mono, fontSize: sz.certArr, color: colors.accent, marginLeft: '12px' }}>{openCert === i ? '▲' : '▼'}</span>
+                  <span style={{ ...smallBtn, whiteSpace: 'nowrap' }}>{isMobile ? 'OPEN ↗' : active ? 'HIDE' : 'VIEW'}</span>
+                </>
+              );
+              // phones get the PDF in a new tab, desktop gets an inline preview
+              return isMobile ? (
+                <a key={c.name} href={c.file} target="_blank" rel="noopener noreferrer" className="hover-border" style={cardStyle}>{inner}</a>
+              ) : (
+                <button key={c.name} onClick={() => setOpenCert(active ? null : i)} aria-expanded={active} className="hover-border" style={cardStyle}>{inner}</button>
+              );
+            })}
+          </div>
+
+          {!isMobile && cert && (
+            <div ref={previewRef} style={{ ...style_card, padding: '10px', marginTop: '8px', scrollMarginTop: '70px', animation: 'fade-in 0.25s ease' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', padding: '0 2px 8px' }}>
+                <span style={style_eyebrow}>{cert.name}</span>
+                <div style={{ display: 'flex', gap: '20px' }}>
+                  <a href={cert.file} target="_blank" rel="noopener noreferrer" className="hover-ink" style={smallBtn}>OPEN PDF ↗</a>
+                  <button onClick={() => setOpenCert(null)} className="hover-ink" style={smallBtn}>CLOSE ✕</button>
                 </div>
-                {openCert === i && (
-                  isMobile ? (
-                    <a href={c.file} target="_blank" rel="noopener noreferrer"
-                      style={{ display: 'block', marginTop: '8px', padding: '10px 12px', borderRadius: '12px', textAlign: 'center', fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, border: `0.5px solid ${colors.border}`, textDecoration: 'none' }}>
-                      Open certificate PDF ↗
-                    </a>
-                  ) : (
-                    <iframe src={`${c.file}#view=FitH`} title={c.name}
-                      style={{ width: '100%', height: '500px', border: 'none', borderRadius: '12px', marginTop: '8px' }} />
-                  )
-                )}
+              </div>
+              <iframe key={cert.file} src={`${cert.file}#view=FitH`} title={cert.name}
+                style={{ display: 'block', width: '100%', height: '560px', border: 'none', borderRadius: '8px', background: '#fff' }} />
+            </div>
+          )}
+        </Section>
+
+        <Section label="Related Coursework" defaultOpen={!isMobile} wide>
+          {/* same column gap as the sections above, so the two cards line up with them */}
+          <div style={{ ...cardGrid, columnGap: sectionColumnGap }}>
+            {coursework.map((group) => (
+              <div key={group.title} style={{ ...style_card, padding: '10px 12px' }}>
+                <div style={groupTitle}>{group.title}</div>
+                <BulletList items={group.courses} />
               </div>
             ))}
           </div>
         </Section>
-
-        <Section label="Related Coursework" defaultOpen={!isMobile}>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
-            {coursework.map((group, i) => (
-              <div key={i} style={style_cert_item}>
-                <div style={{ fontSize: sz.skillT, color: colors.text, marginBottom: '8px' }}>{group.title}</div>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {group.courses.map((c, j) => (
-                    <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: sz.cwLi, color: colors.muted, fontWeight: '400', lineHeight: '1.8' }}>
-                      <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        <div style={{ height: '80px' }} />
       </div>
-    </div>
+    </main>
   );
 }
 

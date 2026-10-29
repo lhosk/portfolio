@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import NavBar from "../../components/NavBar";
+import DetailPage from "../../components/DetailPage";
 import {
-  style_page_bg,
-  style_section,
-  style_section_title,
-  style_cert_item,
+  style_card,
+  style_card_label,
+  style_prose,
   colors,
   fonts,
 } from "../../components/styles";
@@ -30,9 +29,10 @@ function Eq({ tex, block }) {
         ref={ref}
         style={{
           background: colors.surface2,
-          padding: "14px 20px",
-          borderRadius: "6px",
-          margin: "10px 0",
+          border: `1px solid ${colors.border}`,
+          padding: "8px 14px",
+          borderRadius: "8px",
+          margin: "8px 0",
           overflowX: "auto",
         }}
       />
@@ -42,27 +42,15 @@ function Eq({ tex, block }) {
 }
 
 /* ─── Style tokens ─── */
-const card = { ...style_cert_item, padding: "28px", marginBottom: "16px" };
-const metaEyebrow = { fontFamily: fonts.mono, fontSize: "11px", color: colors.accent, letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" };
-const body = { fontSize: "16px", color: colors.muted, lineHeight: "1.8" };
-const p = { marginBottom: "12px" };
+const card = style_card;
+const metaEyebrow = style_card_label;
+const body = style_prose;
+const p = { marginBottom: "10px" };
 
 function PhononIntro() {
   return (
-    <div style={style_page_bg}>
-      <NavBar />
-      <div style={style_section}>
-        <div style={style_section_title}>
-          Introduction to Phonons &amp; Quantum Mechanics (In Progress)
-        </div>
-
-        {/* ── Meta ── */}
-        <div style={card}>
-          <div style={metaEyebrow}>Stack</div>
-          <div style={{ fontFamily: fonts.mono, fontSize: "13px", color: colors.muted }}>
-            JavaScript · Quantum Mechanics · Phonons · Linear Algebra · Statistical Mechanics
-          </div>
-        </div>
+    <DetailPage title="Introduction to Phonons & Quantum Mechanics"
+      stack="JavaScript · Quantum Mechanics · Phonons · Linear Algebra · Statistical Mechanics">
 
         <div style={card}>
           <div style={metaEyebrow}>Overview</div>
@@ -1164,10 +1152,10 @@ function PhononIntro() {
             </p>
           </div>
         </div> */}
-        IN PROGRESS
-        <div style={{ height: "80px" }} />
-      </div>
-    </div>
+        <div style={{ ...metaEyebrow, marginBottom: 0, textAlign: "center", padding: "22px", borderRadius: "14px", border: `1px dashed ${colors.borderStrong}` }}>
+          In progress
+        </div>
+    </DetailPage>
   );
 }
 

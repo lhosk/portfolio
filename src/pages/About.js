@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import NavBar from '../components/NavBar';
+import React from 'react';
 import {
-  style_page_bg,
   style_section,
-  style_section_title,
-  style_cert_item,
+  style_card,
+  style_card_label,
+  style_about_text,
   colors,
   fonts,
+  fluid,
 } from '../components/styles';
+import { PageHeader } from '../components/DetailPage';
+import { useIsNarrow, useCopyEmail } from '../components/hooks';
+import { EMAIL, socials } from '../data/site';
 
 const facts = [
   { label: 'Location', value: 'Raleigh, NC' },
@@ -15,67 +18,67 @@ const facts = [
   { label: 'Focus', value: 'Computational Physics, Scientific Computing, ML, Simulations, Data Science' },
   { label: 'My Teams', value: 'West Ham, Colombia National Team, Millonarios, Carolina Hurricanes' },
   { label: 'Music', value: 'Dominic Fike, Yeek, Baird, Bakar, Matt Champion' },
-  { label: 'Instruments', value: 'Acoustic, Electric, and Lap Steel Guitar, Ukelele, and Piano' },
+  { label: 'Instruments', value: 'Acoustic, Electric, and Lap Steel Guitar, Ukulele, and Piano' },
   { label: 'Activities', value: 'Camping, Soccer, Tennis' },
   { label: 'Pets', value: 'Laz (cat), Pepper (dog)' },
 ];
 
-const contactLinks = [
-  { label: 'GitHub', value: 'github.com/lhosk', href: 'https://github.com/lhosk' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/lhosk', href: 'https://linkedin.com/in/lhosk' },
-  { label: 'Spotify', value: 'open.spotify.com', href: 'https://open.spotify.com/user/b9sdhtywj28lh1yg15zfjg3s6' },
-];
+const rowLabel = { fontFamily: fonts.mono, fontSize: fluid(11, 12), fontWeight: 500, color: colors.text };
+// value color comes from the row so .hover-ink can brighten it
+const rowValue = { fontFamily: fonts.mono, fontSize: fluid(11, 12), fontWeight: 500, textAlign: 'right', overflowWrap: 'anywhere' };
 
-const InfoPanel = ({ facts, contactLinks, copyEmail, copied }) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-    <div style={{ ...style_cert_item, padding: '20px' }}>
-      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Quick Facts</div>
-      {facts.map((f, i) => (
-        <div key={i} style={{ display: 'flex', flexDirection: 'column', paddingBottom: '10px', marginBottom: i < facts.length - 1 ? '10px' : 0, borderBottom: i < facts.length - 1 ? `0.5px solid ${colors.border}` : 'none' }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '1px', marginBottom: '3px' }}>{f.label.toUpperCase()}</div>
-          <div style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: colors.muted }}>{f.value}</div>
-        </div>
-      ))}
-    </div>
-    <div style={{ ...style_cert_item, padding: '20px' }}>
-      <div style={{ fontFamily: fonts.mono, fontSize: 'clamp(12px, 1.4vw, 14px)', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>Contact</div>
-      {contactLinks.map((l, i) => (
-        <div key={i}>
-          <a href={l.href} target="_blank" rel="noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', padding: '8px 0' }}>
-            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 14px)', color: colors.text }}>{l.label}</span>
-            <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 15px)', color: colors.accent }}>{l.value}</span>
+const InfoPanel = () => {
+  const [copied, copyEmail] = useCopyEmail();
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <section style={style_card}>
+        <h2 style={style_card_label}>Quick Facts</h2>
+        {facts.map((f, i) => (
+          <div key={f.label} style={{ padding: '6px 0', borderTop: i ? `1px solid ${colors.border}` : 'none' }}>
+            <div style={{ fontFamily: fonts.mono, fontSize: '10.5px', fontWeight: 500, color: colors.faint, letterSpacing: '1.2px', textTransform: 'uppercase', marginBottom: '1px' }}>{f.label}</div>
+            <div style={{ fontSize: fluid(13, 15), color: colors.text, lineHeight: '1.4' }}>{f.value}</div>
+          </div>
+        ))}
+      </section>
+      <section style={style_card}>
+        <h2 style={style_card_label}>Contact</h2>
+        {socials.map((l) => (
+          <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="hover-ink"
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', textDecoration: 'none', color: colors.accentInk, padding: '7px 0', borderBottom: `1px solid ${colors.border}` }}>
+            <span style={rowLabel}>{l.label}</span>
+            <span style={rowValue}>{l.handle} ↗</span>
           </a>
-          <div style={{ height: '0.5px', background: colors.border }} />
-        </div>
-      ))}
-      <div onClick={copyEmail} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', padding: '10px 0' }}>
-        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(14px, 1.6vw, 14px)', color: colors.text }}>Email</span>
-        <span style={{ fontFamily: fonts.mono, fontSize: 'clamp(13px, 1.5vw, 15px)', color: colors.accent }}>{copied ? 'Copied!' : 'LHoskin.Work@gmail.com'}</span>
-      </div>
+        ))}
+        <button onClick={copyEmail} className="hover-ink"
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', width: '100%', cursor: 'pointer', color: colors.accentInk, padding: '7px 0 0', background: 'none', border: 'none' }}>
+          <span style={rowLabel}>Email</span>
+          <span style={rowValue}>{copied ? 'Copied!' : EMAIL}</span>
+        </button>
+      </section>
     </div>
-  </div>
-);
+  );
+};
 
 const BioText = () => (
-  <div style={{ fontSize: 'clamp(14px, 1.4vw, 19px)', color: colors.muted, lineHeight: '1.8' }}>
-    <p style={{ marginBottom: '14px' }}>
+  <div className="prose" style={style_about_text}>
+    <p style={{ fontSize: '1.04em', color: colors.text }}>
       I recently finished degrees in Computer Science and Applied Physics at University of North Carolina at Charlotte.
       I got into physics in high school and stuck with it through undergrad, but eventually I realized I wanted to do more than just solve equations on paper.
       Once I found computer science, it started to make a lot more sense to me. I liked that I could build things with the ideas I was learning, whether that meant simulations, visualizations, or computational models.
     </p>
-    <p style={{ marginBottom: '14px' }}>
+    <p>
       That led me toward scientific computing, simulations, machine learning, and data science.
       I enjoy working on problems where the theory and the programming both matter.
       One of my favorite projects was building a virtual retinal display in LightTools and working on retinal projection simulations.
       Projects like that are what made me want to keep going deeper into computational work and high performance computing.
     </p>
-    <p style={{ marginBottom: '14px' }}>
+    <p>
       Outside of work, I try to spend less time behind a screen.
       I've been getting outdoors more and spending time around places like Linville Gorge and Ocracoke Island.
       Most weekends I'm either playing soccer, watching sports, or listening to music.
       I follow West Ham United, the Colombia national football team, and Millonarios Futbol Club. I'm also a fan of the Carolina Hurricanes.
     </p>
-    <p style={{ marginBottom: '14px' }}>
+    <p>
       Music is usually playing while I work. I play acoustic guitar, electric guitar, lap steel guitar, and a little ukulele.
       Lately I've been listening to Dominic Fike, Yeek, Baird, Bakar, and Matt Champion.
       When I'm not working on something, I'm usually hanging around at home with my cat Laz and my dog Pepper.
@@ -84,69 +87,16 @@ const BioText = () => (
 );
 
 function About() {
-  const [copied, setCopied] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handler = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
-  }, []);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText('LHoskin.Work@gmail.com');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 750);
-  };
-
-  const switchTrack = {
-    width: '44px', height: '24px', borderRadius: '12px', cursor: 'pointer',
-    background: showInfo ? colors.accent : colors.surface,
-    border: `0.5px solid ${showInfo ? colors.accent : colors.border}`,
-    position: 'relative', transition: 'all 0.25s', flexShrink: 0,
-  };
-
-  const switchThumb = {
-    width: '18px', height: '18px', borderRadius: '50%',
-    background: '#fff', position: 'absolute', top: '2px',
-    left: showInfo ? '22px' : '3px', transition: 'left 0.25s',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
-  };
+  const isMobile = useIsNarrow(860);
 
   return (
-    <div style={style_page_bg}>
-      <NavBar />
-      <div style={style_section}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-          <div style={style_section_title}>ABOUT ME</div>
-          {isMobile && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontFamily: fonts.mono, fontSize: '12px', color: colors.muted, letterSpacing: '1px', textTransform: 'uppercase' }}>
-                {showInfo ? 'INFO' : 'BIO'}
-              </span>
-              <div style={switchTrack} onClick={() => setShowInfo(!showInfo)}>
-                <div style={switchThumb} />
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Desktop: side by side */}
-        {!isMobile && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', alignItems: 'start' }}>
-            <BioText />
-            <InfoPanel facts={facts} contactLinks={contactLinks} copyEmail={copyEmail} copied={copied} />
-          </div>
-        )}
-
-        {/* Mobile: toggle between bio and info */}
-        {isMobile && !showInfo && <BioText />}
-        {isMobile && showInfo && <InfoPanel facts={facts} contactLinks={contactLinks} copyEmail={copyEmail} copied={copied} />}
-
-        <div style={{ height: '80px' }} />
+    <main style={style_section}>
+      <PageHeader title="About Me" />
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 1.25fr) minmax(0, 1fr)', gap: 'clamp(14px, 2.4vw, 32px)', alignItems: 'start' }}>
+        <BioText />
+        <InfoPanel />
       </div>
-    </div>
+    </main>
   );
 }
 

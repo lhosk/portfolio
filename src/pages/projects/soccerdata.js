@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../../components/NavBar";
-import { style_page_bg, style_section, style_section_title, style_cert_item, colors, fonts } from "../../components/styles";
+import DetailPage, { Card, Prose, Figure, FigureGrid } from "../../components/DetailPage";
+import { colors, fonts, fluid } from "../../components/styles";
 import shotMaps from "../../assets/images/soccerdata/shot_maps.png";
 import shotMapsVsAll from "../../assets/images/soccerdata/shot_maps_vs_all.png";
 import touchDual from "../../assets/images/soccerdata/touch_heatmap_dual.png";
@@ -25,58 +25,38 @@ const steps = [
 ];
 
 function SoccerData() {
-  const cardLabel = { fontFamily: fonts.mono, fontSize: '11px', color: colors.accent, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' };
-  const imgStyle = { width: '100%', display: 'block', borderRadius: '10px' };
-  const labelStyle = { fontFamily: fonts.mono, fontSize: '11px', color: colors.muted, marginBottom: '8px', textAlign: 'center', fontWeight: '400' };
   return (
-    <div style={style_page_bg}>
-      <NavBar />
-      <div style={style_section}>
-        <div style={style_section_title}>World Cup 2026 Soccer Data</div>
-        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
-          <div style={cardLabel}>Stack</div>
-          <div style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.muted }}>Python · Pandas · SQLite · Matplotlib · mplsoccer · SciPy · scikit-learn · Jupyter · Web Scraping · Opta + SofaScore Event Data</div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
-          <div style={cardLabel}>Links</div>
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <a href="https://github.com/lhosk/soccerdata" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>View on GitHub ↗</a>
-            <a href="https://x.com/GukasCOL" target="_blank" rel="noreferrer" style={{ fontFamily: fonts.mono, fontSize: '13px', color: colors.accent, textDecoration: 'none' }}>@GukasCOL on X ↗</a>
-          </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
-          <div style={cardLabel}>Overview</div>
-          <div style={{ fontSize: '16px', color: colors.muted, lineHeight: '1.8' }}>
-            <p style={{ marginBottom: '12px' }}>A soccer database and graphics pipeline built for the 2026 World Cup. Match stats, lineups and event-level data are scraped from SofaScore and Opta, merged into a single SQLite database, and turned into data visualizations: shot maps, touch heatmaps, pass networks, radars, scatters, bar charts, match dashboards and even pass-sequence videos.</p>
-            <p style={{ marginBottom: '12px' }}>The two sources are linked automatically, including matching abbreviated Opta names like "L. Messi" to full SofaScore names. Imports are archived so re-importing never duplicates data, and when a source adds a new stat the schema evolves on its own.</p>
-            <p style={{ marginBottom: '12px' }}>Everything is config-driven. Leagues, team colors and the chart palette live in JSON, so adding a new competition takes no code changes. Each chart is registered with the modes it supports (team, team vs team, player, all teams, all players), so a single render queue entry produces every relevant chart at once.</p>
-          </div>
-        </div>
-        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
-          <div style={cardLabel}>Pipeline</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px' }}>
-            {steps.map((s, i) => (
-              <div key={s.name}>
-                <div style={{ fontFamily: fonts.mono, fontSize: '12px', color: colors.text, marginBottom: '6px' }}>{String(i + 1).padStart(2, '0')} · {s.name.toUpperCase()}</div>
-                <div style={{ fontSize: '14px', color: colors.muted, lineHeight: '1.6' }}>{s.text}</div>
+    <DetailPage title="2026 World Cup Analytics"
+      stack="Python · Pandas · SQLite · Matplotlib · mplsoccer · SciPy · scikit-learn · Jupyter · Web Scraping · Opta + SofaScore Event Data"
+      links={[
+        { label: "View on GitHub", href: "https://github.com/lhosk/soccerdata" },
+        { label: "@GukasCOL on X", href: "https://x.com/GukasCOL" },
+      ]}>
+      <Card label="Overview">
+        <Prose>
+          <p>A soccer database and graphics pipeline built for the 2026 World Cup. Match stats, lineups and event-level data are scraped from SofaScore and Opta, merged into a single SQLite database, and turned into data visualizations: shot maps, touch heatmaps, pass networks, radars, scatters, bar charts, match dashboards and even pass-sequence videos.</p>
+          <p>The two sources are linked automatically, including matching abbreviated Opta names like "L. Messi" to full SofaScore names. Imports are archived so re-importing never duplicates data, and when a source adds a new stat the schema evolves on its own.</p>
+          <p>Everything is config-driven. Leagues, team colors and the chart palette live in JSON, so adding a new competition takes no code changes. Each chart is registered with the modes it supports (team, team vs team, player, all teams, all players), so a single render queue entry produces every relevant chart at once.</p>
+        </Prose>
+      </Card>
+      <Card label="Pipeline">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '12px 18px' }}>
+          {steps.map((s, i) => (
+            <div key={s.name}>
+              <div style={{ fontFamily: fonts.mono, fontSize: fluid(10.5, 11.5), fontWeight: 500, color: colors.accentInk, letterSpacing: '1px', marginBottom: '4px' }}>
+                {String(i + 1).padStart(2, '0')} · {s.name.toUpperCase()}
               </div>
-            ))}
-          </div>
+              <div style={{ fontSize: fluid(13, 14), fontWeight: 'normal', color: colors.muted, lineHeight: '1.5' }}>{s.text}</div>
+            </div>
+          ))}
         </div>
-        <div style={{ ...style_cert_item, padding: '28px', marginBottom: '16px' }}>
-          <div style={{ ...cardLabel, marginBottom: '16px' }}>Outputs</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', gap: '24px' }}>
-            {gallery.map((g) => (
-              <div key={g.label}>
-                <div style={labelStyle}>{g.label}</div>
-                <a href={g.src} target="_blank" rel="noreferrer"><img src={g.src} alt={g.label} loading="lazy" style={imgStyle} /></a>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div style={{ height: '80px' }} />
-      </div>
-    </div>
+      </Card>
+      <Card label="Outputs">
+        <FigureGrid min={480}>
+          {gallery.map((g) => <Figure key={g.label} src={g.src} alt={g.label} caption={g.label} />)}
+        </FigureGrid>
+      </Card>
+    </DetailPage>
   );
 }
 export default SoccerData;
