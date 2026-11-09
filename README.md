@@ -53,6 +53,8 @@ PORTFOLIO/
 │   ├── assets/
 │   │   ├── certificates/
 │   │   ├── images/
+│   │   │   ├── soccerdata/
+│   │   │   └── thorium/
 │   │   ├── papers/
 │   │   ├── sounds/
 │   │   └── videos/
@@ -113,6 +115,7 @@ PORTFOLIO/
 │   │   │   ├── soccerdata.js
 │   │   │   ├── spinn.js
 │   │   │   ├── srgan.js
+│   │   │   ├── thorium.js
 │   │   │   ├── vrd.js
 │   │   │   └── wave.js
 │   │   │

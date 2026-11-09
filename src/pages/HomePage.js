@@ -18,7 +18,7 @@ import {
 } from '../components/styles';
 import { useCopyEmail } from '../components/hooks';
 import { socials } from '../data/site';
-import featuredImg from '../assets/images/soccerdata/touch_heatmap_dual.png';
+import featuredImg from '../assets/images/thorium/driver_heatmaps.png';
 
 const languages = ['Bash', 'C++', 'JavaScript', 'LaTeX', 'Markdown', 'MATLAB', 'Python', 'SQL'];
 
@@ -81,14 +81,14 @@ function HomePage() {
 
         <div className="fade-up" style={{ flex: '1 1 300px', maxWidth: '460px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px', ...fadeDelay(6) }}>
           <div style={style_home_section_label}>Latest Project</div>
-          <Link to="/projects/soccerdata" className="hover-lift" style={{ ...style_home_card, padding: 0, overflow: 'hidden' }}>
-            <img src={featuredImg} alt="Touch heatmap from the 2026 World Cup analytics project" style={{ width: '100%', display: 'block', aspectRatio: '2 / 1', objectFit: 'cover', objectPosition: 'center 65%' }} />
+          <Link to="/projects/thorium" className="hover-lift" style={{ ...style_home_card, padding: 0, overflow: 'hidden' }}>
+            <img src={featuredImg} alt="Flux and power per rod in the driven thorium assembly" style={{ width: '100%', display: 'block', aspectRatio: '2 / 1', objectFit: 'cover', objectPosition: 'center' }} />
             <div style={{ padding: '10px 12px' }}>
               <div style={{ fontFamily: fonts.mono, fontSize: '11px', fontWeight: 500, color: colors.accentInk, letterSpacing: '1.5px', marginBottom: '3px' }}>PYTHON · 2026</div>
               <div style={{ ...style_home_card_title, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '12px' }}>
-                2026 World Cup Analytics<span className="arrow" style={{ color: colors.accent }}>→</span>
+                Thorium Subcritical Reactor Study<span className="arrow" style={{ color: colors.accent }}>→</span>
               </div>
-              <div style={style_home_card_desc}>Scraped event data, a SQLite pipeline and match graphics for every game.</div>
+              <div style={style_home_card_desc}>OpenMC models of a thorium assembly kept subcritical and driven by a 14.1 MeV source.</div>
             </div>
           </Link>
 

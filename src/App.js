@@ -24,6 +24,7 @@ const Rlgl = lazy(() => import('./pages/projects/rlgl'));
 const SoccerData = lazy(() => import('./pages/projects/soccerdata'));
 const Spinn = lazy(() => import('./pages/projects/spinn'));
 const Srgan = lazy(() => import('./pages/projects/srgan'));
+const Thorium = lazy(() => import('./pages/projects/thorium'));
 const Vrd = lazy(() => import('./pages/projects/vrd'));
 const Wave = lazy(() => import('./pages/projects/wave'));
 const Rotating = lazy(() => import('./pages/projects/gl/rotating'));
@@ -66,6 +67,7 @@ function App() {
             <Route path="/projects/soccerdata" element={<SoccerData />} />
             <Route path="/projects/spinn" element={<Spinn />} />
             <Route path="/projects/srgan" element={<Srgan />} />
+            <Route path="/projects/thorium" element={<Thorium />} />
             <Route path="/projects/vrd" element={<Vrd />} />
             <Route path="/projects/wave" element={<Wave />} />
             <Route path="/projects/gl/rotating" element={<Rotating />} />
