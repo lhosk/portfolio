@@ -5,6 +5,7 @@ import phononimg from '../assets/images/papers/phonon.png';
 
 export const projects = [
   { title: 'Thorium Subcritical Reactor Study', lang: 'Python', year: 2026, desc: 'OpenMC · Monte Carlo · Reactor physics · ENDF/B-VIII.0 · Depletion', path: '/projects/thorium' },
+  { title: 'Ruckus Fantasy', lang: 'TypeScript', year: 2026, desc: 'Next.js · TypeScript · Python · SQLite · Fantasy sports · AI-assisted development', path: '/projects/ruckus' },
   { title: '2026 World Cup Analytics', lang: 'Python', year: 2026, desc: 'Pandas · SQLite · mplsoccer · Opta + SofaScore event data · Data visualization', path: '/projects/soccerdata' },
   { title: 'Stochastic Physics Informed Neural Network (SPINN)', lang: 'Python', year: 2025, desc: 'PyTorch · PINNs · RNNs · Ocean wave forecasting · AWS SageMaker', path: '/projects/spinn' },
   { title: 'Super Resolution GAN', lang: 'Python', year: 2025, desc: 'TensorFlow · SRGAN · CNN image super-resolution · Transfer learning', path: '/projects/srgan' },

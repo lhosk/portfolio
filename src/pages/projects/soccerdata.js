@@ -1,6 +1,5 @@
 import React from "react";
-import DetailPage, { Card, Prose, Figure, FigureGrid } from "../../components/DetailPage";
-import { colors, fonts, fluid } from "../../components/styles";
+import DetailPage, { Card, Prose, Figure, FigureGrid, StepGrid } from "../../components/DetailPage";
 import shotMaps from "../../assets/images/soccerdata/shot_maps.png";
 import shotMapsVsAll from "../../assets/images/soccerdata/shot_maps_vs_all.png";
 import touchDual from "../../assets/images/soccerdata/touch_heatmap_dual.png";
@@ -40,16 +39,7 @@ function SoccerData() {
         </Prose>
       </Card>
       <Card label="Pipeline">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '12px 18px' }}>
-          {steps.map((s, i) => (
-            <div key={s.name}>
-              <div style={{ fontFamily: fonts.mono, fontSize: fluid(10.5, 11.5), fontWeight: 500, color: colors.accentInk, letterSpacing: '1px', marginBottom: '4px' }}>
-                {String(i + 1).padStart(2, '0')} · {s.name.toUpperCase()}
-              </div>
-              <div style={{ fontSize: fluid(13, 14), fontWeight: 'normal', color: colors.muted, lineHeight: '1.5' }}>{s.text}</div>
-            </div>
-          ))}
-        </div>
+        <StepGrid steps={steps} />
       </Card>
       <Card label="Outputs">
         <FigureGrid min={480}>

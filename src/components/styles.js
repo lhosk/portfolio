@@ -29,6 +29,7 @@ export const langColors = {
   'C++':      { bar: '#003464', ink: '#003464' },
   MATLAB:     { bar: '#8d0e25', ink: '#8d0e25' },
   JavaScript: { bar: '#c9a900', ink: '#725d00' },
+  TypeScript: { bar: '#2f8f83', ink: '#1f6a60' },
 };
 
 // LAYOUT

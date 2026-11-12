@@ -1,5 +1,5 @@
 import React from "react";
-import DetailPage, { Card, Prose, Figure, FigureGrid, BulletList } from "../../components/DetailPage";
+import DetailPage, { Card, Prose, Figure, FigureGrid, BulletList, StepGrid, BalancedGrid } from "../../components/DetailPage";
 import { colors, fonts, fluid } from "../../components/styles";
 import driverHeatmaps from "../../assets/images/thorium/driver_heatmaps.png";
 import particleTracks from "../../assets/images/thorium/particle_tracks.png";
@@ -70,26 +70,17 @@ function Thorium() {
         </Prose>
       </Card>
       <Card label="What I built">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '12px 18px' }}>
-          {steps.map((s, i) => (
-            <div key={s.name}>
-              <div style={{ fontFamily: fonts.mono, fontSize: fluid(10.5, 11.5), fontWeight: 500, color: colors.accentInk, letterSpacing: '1px', marginBottom: '4px' }}>
-                {String(i + 1).padStart(2, '0')} · {s.name.toUpperCase()}
-              </div>
-              <div style={{ fontSize: fluid(13, 14), fontWeight: 'normal', color: colors.muted, lineHeight: '1.5' }}>{s.text}</div>
-            </div>
-          ))}
-        </div>
+        <StepGrid steps={steps} />
       </Card>
       <Card label="Key results">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 170px), 1fr))', gap: '10px', marginBottom: '14px' }}>
+        <BalancedGrid gap="10px" style={{ marginBottom: '14px' }}>
           {highlights.map((h) => (
             <div key={h.value} style={{ background: colors.surface2, borderRadius: '8px', padding: '10px 12px' }}>
               <div style={{ fontFamily: fonts.mono, fontSize: fluid(17, 21), fontWeight: 500, color: colors.accentInk, lineHeight: '1.2', marginBottom: '4px' }}>{h.value}</div>
               <div style={{ fontSize: fluid(12, 13), color: colors.muted, lineHeight: '1.45' }}>{h.label}</div>
             </div>
           ))}
-        </div>
+        </BalancedGrid>
         <BulletList items={results} />
       </Card>
       <Card label="Figures">

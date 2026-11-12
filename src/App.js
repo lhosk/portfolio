@@ -21,6 +21,7 @@ const Parallel = lazy(() => import('./pages/projects/parallel'));
 const Recommendation = lazy(() => import('./pages/projects/recommendation'));
 const Rl = lazy(() => import('./pages/projects/rl'));
 const Rlgl = lazy(() => import('./pages/projects/rlgl'));
+const Ruckus = lazy(() => import('./pages/projects/ruckus'));
 const SoccerData = lazy(() => import('./pages/projects/soccerdata'));
 const Spinn = lazy(() => import('./pages/projects/spinn'));
 const Srgan = lazy(() => import('./pages/projects/srgan'));
@@ -64,6 +65,7 @@ function App() {
             <Route path="/projects/recommendation" element={<Recommendation />} />
             <Route path="/projects/rl" element={<Rl />} />
             <Route path="/projects/rlgl" element={<Rlgl />} />
+            <Route path="/projects/ruckus" element={<Ruckus />} />
             <Route path="/projects/soccerdata" element={<SoccerData />} />
             <Route path="/projects/spinn" element={<Spinn />} />
             <Route path="/projects/srgan" element={<Srgan />} />

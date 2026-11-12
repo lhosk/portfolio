@@ -53,6 +53,7 @@ PORTFOLIO/
 │   ├── assets/
 │   │   ├── certificates/
 │   │   ├── images/
+│   │   │   ├── ruckus/
 │   │   │   ├── soccerdata/
 │   │   │   └── thorium/
 │   │   ├── papers/
@@ -112,6 +113,7 @@ PORTFOLIO/
 │   │   │   ├── recommendation.js
 │   │   │   ├── rl.js
 │   │   │   ├── rlgl.js
+│   │   │   ├── ruckus.js
 │   │   │   ├── soccerdata.js
 │   │   │   ├── spinn.js
 │   │   │   ├── srgan.js

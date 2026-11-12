@@ -4,3 +4,6 @@ build/
 # photos
 photos-source/
 scripts/.geocache.json
+
+# prompt for exporting projects from other repos
+port_export_info.txt

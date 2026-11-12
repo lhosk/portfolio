@@ -98,6 +98,36 @@ export function BulletList({ items }) {
   );
 }
 
+// Grid that keeps its rows even: at most 4 per row, split into equal rows where it can
+// (6 items is 3 + 3, 8 is 4 + 4). Narrower screens drop to 2 columns, then 1. Breakpoints are in index.css.
+export function BalancedGrid({ gap = '12px 18px', style, children }) {
+  const n = React.Children.count(children);
+  const cols = Math.max(1, Math.ceil(n / Math.ceil(n / 4)));
+  const mid = cols === 4 ? 2 : cols;
+  const narrow = cols === 3 ? (n % 2 === 0 ? 2 : 1) : mid;
+  return (
+    <div className="balanced-grid" style={{ '--cols': cols, '--cols-mid': mid, '--cols-narrow': narrow, gap, ...style }}>
+      {children}
+    </div>
+  );
+}
+
+// numbered "01 · NAME" blocks, for pipelines and "what I built" lists
+export function StepGrid({ steps }) {
+  return (
+    <BalancedGrid>
+      {steps.map((s, i) => (
+        <div key={s.name}>
+          <div style={{ fontFamily: fonts.mono, fontSize: fluid(10.5, 11.5), fontWeight: 500, color: colors.accentInk, letterSpacing: '1px', marginBottom: '4px' }}>
+            {String(i + 1).padStart(2, '0')} · {s.name.toUpperCase()}
+          </div>
+          <div style={{ fontSize: fluid(13, 14), fontWeight: 'normal', color: colors.muted, lineHeight: '1.5' }}>{s.text}</div>
+        </div>
+      ))}
+    </BalancedGrid>
+  );
+}
+
 const s_caption = {
   fontFamily: fonts.mono, fontSize: '11.5px', fontWeight: 400, color: colors.muted,
   textAlign: 'center', lineHeight: '1.4', marginTop: '6px',
